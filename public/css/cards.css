@@ -1,0 +1,58 @@
+.tarjetas {
+    display: flex;
+    gap: 24px;
+}
+
+.tarjetas .card {
+    width: 100%;
+}
+
+.card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.card .image {
+    height: 240px;
+    background-color: var(--gris);
+    background-size: cover;
+    background-position: center center;
+}
+
+.card .contenido {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card .contenido .top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card h4,
+.card p {
+    margin: 0;
+}
+
+.card .contenido .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.card .contenido .actions .carrito {
+    width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+    .tarjetas {
+        flex-direction: column;
+    }
+}

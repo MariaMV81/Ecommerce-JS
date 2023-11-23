@@ -1,0 +1,365 @@
+:root {
+    /*colores*/
+    --primario: rgb(236, 156, 36);
+    --primario-claro: #dd0638;
+    --primario-oscuro: rgb(5, 96, 161);
+    --negro: black;
+    --blanco: white;
+    --gris: #cacaca;
+    /*tamaño de texto*/
+    --texto-base: 16px;
+    --h1: 3.052rem;
+    --h2: 2.441rem;
+    /*espacios*/
+    --s: 8px;
+    --m: 16px;
+    --l: 24px;
+}
+
+
+
+body {
+    margin: 0;
+
+}
+
+.icon-cart {
+    width: 40px;
+    height: 40px;
+}
+
+img {
+    margin-right: 20px;
+
+}
+
+/*Header*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Añadir esta línea */
+    padding: 30px 20px 40px 20px;
+    margin: 0;
+    /* Eliminar cualquier margen */
+}
+
+/*Main*/
+.container-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /*para que se repitan tres columnas con la misma fracción */
+    gap: 20px;
+    /*separacion entre columnas*/
+}
+
+.item {
+    border-radius: 10px;
+
+}
+
+.item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.info-product {
+    padding: 15px 30px;
+}
+
+.item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 3rem 0 1.38rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+h1,
+.h1 {
+    margin-top: 0;
+    font-size: 4.209rem;
+}
+
+h2,
+.h2 {
+    font-size: 3.157rem;
+}
+
+h3,
+.h3 {
+    font-size: 2.369rem;
+}
+
+h4,
+.h4 {
+    font-size: 1.777rem;
+}
+
+h5,
+.h5 {
+    font-size: 1.333rem;
+}
+
+small,
+.text_small {
+    font-size: 0.75rem;
+}
+
+a,
+.m-color {
+    color: var(--primario);
+}
+
+
+.wrap {
+    max-width: 1080px;
+    padding: 0;
+    margin: auto;
+}
+
+.caja {
+    padding: 40px;
+    border: 2px solid var(--gris);
+    border-radius: 8px;
+}
+
+.caja .title {
+    margin-top: 0;
+}
+
+.caja.destacada {
+    border-color: var(--primario);
+}
+
+
+/* INdex */
+
+header {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 96px;
+}
+
+
+
+.logo {
+    margin: 0;
+    white-space: nowrap;
+}
+
+header #buscador {
+    width: 100%;
+}
+
+.navegacion {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    border-bottom: 1px solid var(--gris);
+}
+
+.navegacion .wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navegacion ul {
+    padding: 0;
+}
+
+.navegacion nav li {
+    display: inline-block;
+    margin-right: 16px;
+}
+
+.navegacion a {
+    text-decoration: none;
+}
+
+.jumbotron {
+    background-image: url("../img/pintura-arcoiris.jpg");
+    background-size: cover;
+    background-position: center center;
+
+    padding: 112px 0;
+
+    color: var(--blanco);
+
+    text-align: center;
+}
+
+.titulo-cat {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 56px;
+    margin-bottom: 32px;
+
+}
+
+.titulo-cat h4 {
+    margin: 0;
+}
+
+
+.valoraciones {
+    background: var(--primario);
+    padding: 72px 0;
+    margin-top: 80px;
+}
+
+.valoraciones .wrap {
+    display: flex;
+    gap: 24px;
+}
+
+.valoraciones .caja,
+.valoraciones .info {
+    width: 100%;
+}
+
+.valoracion {
+    color: var(--gris);
+}
+
+.valoracion .bi {
+    margin-right: 4px;
+}
+
+.garantias {
+    padding: 40px 16px;
+    display: flex;
+    gap: 24px;
+}
+
+.garantia {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+.garantia h5,
+.garantia p {
+    margin: 0;
+}
+
+footer {
+    background: var(--primario-oscuro);
+    color: var(--blanco);
+    padding: 80px 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer .wrap {
+    display: flex;
+    gap: 40px;
+}
+
+footer .izq {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+footer .politicas {
+    display: flex;
+    gap: 24px;
+}
+
+footer .politicas nav {
+    width: 100%;
+}
+
+footer .politicas ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .politicas a {
+    color: var(--blanco);
+}
+
+
+
+footer .der {
+    width: 50%;
+}
+
+footer .der h4,
+footer .der h5 {
+    margin: 0;
+}
+
+footer .der form {
+    margin-top: 24px;
+}
+
+footer .rrss {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    border-top: 1px solid var(--blanco);
+    padding-top: 24px;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    header #buscador {
+        display: none;
+    }
+
+    .navegacion nav li {
+        display: block;
+    }
+
+    .navegacion nav li a {
+        display: block;
+        padding: 8px 0;
+    }
+
+    .valoraciones .wrap,
+    .garantias,
+    footer .wrap {
+        flex-direction: column;
+    }
+
+    .valoraciones .info {
+        text-align: center;
+    }
+
+    .garantias {
+        gap: 32px;
+    }
+
+    footer .logo {
+        margin-bottom: 24px;
+    }
+
+    footer .der {
+        width: 100%;
+    }
+}
+
+/*Cierre de mediaquery, CUIDAO*/

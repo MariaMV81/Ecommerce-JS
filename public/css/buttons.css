@@ -1,0 +1,55 @@
+.btn,
+button {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    padding: 16px 24px;
+    text-decoration: none;
+
+    background: var(--primario);
+    color: var(--blanco);
+
+    border: none;
+    border-radius: 8px;
+
+    transition: all 0.3s;
+}
+
+.btn:hover,
+button:hover {
+    cursor: pointer;
+    background: var(--resalto);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-secundario {
+    background-color: var(--gris);
+    color: var(--negro);
+}
+
+#carrito {
+    position: relative;
+    white-space: nowrap;
+}
+
+#carrito span {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    width: 24px;
+    height: 24px;
+
+    font-size: 0.75rem;
+
+    border-radius: 50%;
+
+    background: var(--negro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
