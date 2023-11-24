@@ -1,0 +1,131 @@
+<html >
+    <head>
+        <title>Mi tienda</title>
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <!-- Bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- Mi estilo -->
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/button.css">
+        <link rel="stylesheet" href="../css/form.css">
+
+        <style>
+            section{
+                display: flex;
+                gap: 24px;
+                margin: 40px 0;
+            }
+            section .caja{
+                width: 100%;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+            <div class="wrap">
+                <a href="carrito.html" class="btn" id="carrito">
+                    <i class="bi bi-cart-fill"></i> 
+                    Carrito 
+                    <span>150</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="navegacion wrap">
+          <nav>
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Contacto</a></li>
+                  <li><a href="#">Ofertas</a></li>
+                  <li><a href="#">Condiciones</a></li>
+              </ul>
+          </nav>   
+          <nav>
+              <ul>
+                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Otra cosa</a></li>
+              </ul>
+          </nav>   
+        </div>
+
+        <main class="wrap">
+
+        <section>
+
+            <div class="caja">
+                <h4 class="title">Iniciar sesión</h4>
+                <form action="">
+                    <div class="col-2">
+                        <div class="input-grp">
+                            <label for="">Nombre*</label>
+                            <input type="text" placeholder="Ejemplo: Manuel">
+                            <div class="error">Por favor, rellena tu nombre</div>
+                        </div>
+                        <div class="input-grp">
+                            <label for="">Apellido*</label>
+                            <input type="text" placeholder="Ejemplo: Palacios">
+                            <div class="error">Por favor, rellena tu apellido</div>
+                        </div>
+                    </div>
+                    <div class="input-grp">
+                        <label for="">Email*</label>
+                        <input type="text" placeholder="email">
+                        <div class="error">Por favor, rellena tu apellido</div>
+                    </div>
+                    <input type="submit" class="btn btn-block" value="Iniciar sesión">
+                </form>
+            </div>
+            <div class="caja destacada">
+                <h4 class="title">Regístrate</h4>
+                <form action="">
+                    <div class="col-2">
+                        <div class="input-grp">
+                            <label for="">Nombre*</label>
+                            <input type="text" placeholder="Ejemplo: Manuel">
+                            <div class="error">Por favor, rellena tu nombre</div>
+                        </div>
+                        <div class="input-grp">
+                            <label for="">Apellidos*</label>
+                            <input type="text" placeholder="Ejemplo: Palacios">
+                            <div class="error">Por favor, rellena tu apellido</div>
+                        </div>
+                    </div>
+                    <div class="input-grp">
+                        <label for="">DNI*</label>
+                        <input type="text" placeholder="email">
+                        <div class="error">Por favor, rellena tu apellido</div>
+                    </div>
+                    
+                    <div class="input-grp">
+                        <label for="">Email*</label>
+                        <input type="text" placeholder="email">
+                        <div class="error">Por favor, rellena tu apellido</div>
+                    </div>
+                    <div class="input-grp">
+                        <label for="">Contraseña*</label>
+                        <input type="text" placeholder="email">
+                        <div class="error">Por favor, rellena tu apellido</div>
+                    </div>
+                    <div class="input-grp">
+                        <label for="">Repetir contraseña*</label>
+                        <input type="text" placeholder="email">
+                        <div class="error">Por favor, rellena tu apellido</div>
+                    </div>
+                    <input type="submit" class="btn btn-block" value="Iniciar sesión">
+                </form>
+            </div>
+
+        </section>
+
+        </main>
+
+        <footer></footer>
+
+    </body>
+</html>
