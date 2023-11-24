@@ -1,0 +1,202 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px 40px 20px;
+}
+
+.logo {
+    margin: 0;
+}
+
+.titulo-malospelos {
+    margin: 0;
+    color: var(--blanco);
+    /* Assuming --blanco is defined in your root styles */
+}
+
+header button {
+    background: var(--primario);
+    color: var(--blanco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container_section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container_micarrito h2 {
+    color: var(--primario);
+}
+
+.article_carro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.article_carro img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.article_carro input {
+    width: 50px;
+}
+
+.article_carro button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.container_seguirc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button {
+    background: var(--primario);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.container_pago {
+    max-width: 300px;
+}
+
+.container-card {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card h4 {
+    margin: 10px 0;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.rating form {
+    display: flex;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 20px;
+    color: var(--primario);
+    cursor: pointer;
+}
+
+.iconos {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.iconos div {
+    text-align: center;
+}
+
+.iconos img {
+    width: 50px;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background: var(--primario-oscuro);
+    color: var(--blanco);
+}
+
+.footer1,
+.footer2 {
+    width: 45%;
+}
+
+.footer1condiciones div {
+    margin-bottom: 20px;
+}
+
+.footer-formulario {
+    margin-top: 20px;
+}
+
+footer input {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid var(--gris);
+    border-radius: 4px;
+}
+
+footer button {
+    background: var(--primario);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.redes {
+    margin-top: 20px;
+}
+
+.redes img {
+    width: 25px;
+    margin-right: 10px;
+}
