@@ -3,8 +3,8 @@ const app = express();
 const mysql = require("mysql2");
 const { message } = require("prompt");
 
-app.use(express.static("public"));
-app.use(express.static());
+app.use("/",express.static("public"));
+app.use(express.json());
 
 // crear conexion con mysql
 const connection = mysql.createConnection({
