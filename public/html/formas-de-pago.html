@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>micarrito</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <!--Mis estilos-->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/button.css">
+    <link rel="stylesheet" href="/css/carrito.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/formas-de-pago.css">
+</head>
+    <header>
+        <a href="/html/carrito.html" class="btn">
+            <i class="bi bi-cart-fill"></i> 
+            Carrito 
+        </a>
+        <i class="bi bi-arrow-right"></i> 
+        <a href="/html/carrito.html" class="btn">
+            <i class="bi bi-wallet"></i> 
+            Forma de pago 
+        </a>
+        <i class="bi bi-arrow-right"></i> 
+        <a href="/html/carrito.html" class="btn">
+            <i class="bi bi-wallet"></i> 
+            Finalizar compra 
+        </a>
+    </header>
+   
+    <section class="formulario container">
+      <div class="container_formadepago">
+        <h2>Forma de Pago</h2>
+        <form>
+          <h3>Mis tarjetas</h3>
+          <div class="input-button">
+            <div>
+              <label for=">Mastercard ....564">
+                <input
+                  type="radio"
+                  id="mastercard....564"
+                  value="mastercard...564"
+                  name="tarjetas"
+                  checked
+                />
+                <img src="../HTML/iconos/tarjeta.png" width="25"  alt="icono-tarjeta"/> Mastercard
+                ....564</label
+              >
+            </div>
+            <div>
+              <label for=">Mastercard ....568">
+                <input
+                  type="radio"
+                  id="Mastercard....568"
+                  value="Mastercard....568"
+                  name="tarjetas"
+                />
+                <img src="../HTML/iconos/tarjeta.png" width="25" alt="icono-tarjeta"/>
+                Mastercard....568</label
+              >
+            </div>
+            <div>
+              <label for=">Mastercard ....566">
+                <input
+                  type="radio"
+                  id="Mastercard....566"
+                  value="Mastercard....566"
+                  name="tarjetas"
+                />
+                <img src="../HTML/iconos/tarjeta.png" width="25" alt="icono-tarjeta"/> Mastercard
+                ....566</label
+              >
+            </div>
+
+            <button type="submit" class="button">
+              <a href="/html/finalizar-pedido.html">Pagar con tarjeta</a>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <form>
+          <div class="form_tarjeta">
+            <h3>Añadir nueva tarjeta</h3>
+            <div class="input-button">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Número de la tarjeta"
+                  name="tarjeta"
+                />
+              </div>
+              <div>
+                <input type="text" placeholder="Titular de la tarjeta" />
+              </div>
+              <div>
+                <input type="text" placeholder="Caducidad" />
+                <input type="text" placeholder="Código seguro" />
+              </div>
+            </div>
+
+            <button class="button" type="submit">
+              <a href="#"> Añadir a mis tarjetas</a>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Garantias -->
+          <section class="wrap garantias">
+
+            <div class="garantia">
+              <i class="bi bi-bag-heart h2 m-color"></i>
+              <div>
+                <h5>Pago Seguro</h5>
+                <p>Fracciona tu pago al momento,<br> sin papeleo</p>
+              </div>
+            </div>
+            <div class="garantia">
+              <i class="bi bi-bag-heart h2 m-color"></i>
+              <div>
+                <h5>Portes Gratis</h5>
+                <p>En compras superiores a 150€</p>
+              </div>
+            </div>
+            <div class="garantia">
+              <i class="bi bi-bag-heart h2 m-color"></i>
+              <div>
+                <h5>WEB SEGURA HTTPS</h5>
+                <p>Toda la garantia del mundo</p>
+              </div>
+            </div>
+
+          </section>
+
+        </main>
+  <!-- FOOTER -->
+        <footer>
+          <div class="wrap">
+            <div class="izq">
+              <img src="" alt="Logo Lienzo en Blanco" width="150">
+              <div class="politicas">
+                <nav>
+                  <ul>
+                    <li><a href="#">Sobre Lienzo en Blanco</a></li>
+                    <li><a href="#">Nuestros expertos</a></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                    <li><a href="#">Páginas de ayuda</a></li>
+                  </ul>
+                </nav>
+                <nav>
+                  <ul>
+                    <li><a href="#">Politica de privacidad</a></li>
+                    <li><a href="#">Protección del comprador</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Condicions generales</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="der">
+              <h5>Únete a nuestra newsletter, te enviaremos email bonitos  = )</h5>
+
+              <form action="">
+
+                <div class="input-grp">
+                    <label for="">Email*</label>
+                    <input type="email" placeholder="email">
+                    <div class="error">Por favor, inserta un email válido</div>
+                </div>
+
+                <div class="input-grp">
+                  <label for="">
+                    <input type="checkbox">
+                    <span>Acepto vuestra <a href="#">politica</a> de privacidad </span>
+                  </label>
+                  <div class="error">Por favor, rellena tu apellido</div>
+                </div>
+
+                <input type="submit" class="btn btn-block" value="Iniciar sesión">
+
+              </form>
+
+              <div class="rrss">
+                <h5>Síguenos en redes</h5>
+                <div>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-twitter"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-twitch"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+  </body>
+</html>

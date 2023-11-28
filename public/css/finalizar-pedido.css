@@ -1,0 +1,38 @@
+.resumen_pedido {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--l);
+    border: 2px solid var(--primario-claro);
+    border-radius: var(--l);
+    justify-content: space-around;
+    box-shadow: 0 8px 16px -12px;
+
+}
+
+.resumen_pedido h2 {
+    color: var(--primario);
+}
+
+.container_envio {
+
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 100px;
+
+}
+
+.container_button {
+    padding: 50px;
+
+}
+
+.container_section h2 {
+    color: var(--primario);
+}
+
+.input_linea {
+    display: flex;
+}

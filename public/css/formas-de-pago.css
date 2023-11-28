@@ -1,0 +1,17 @@
+.container_formadepago {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: var(--l);
+    border: 2px solid var(--primario-claro);
+    border-radius: var(--l);
+    justify-content: space-around;
+    box-shadow: 0 8px 16px -12px;
+}
+
+.form_tarjeta {
+    display: flex;
+    flex-direction: column;
+    padding: var(--l);
+
+}

@@ -1,7 +1,7 @@
 let express = require("express");
-const app = express();
 let mysql = require("mysql2");
 const { message } = require("prompt");
+const app = express();
 
 app.use("/",express.static("public"));
 app.use(express.json());
