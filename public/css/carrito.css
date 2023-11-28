@@ -1,19 +1,40 @@
-/* Reset some default styles */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
+/* Variables */
+:root {
+    --color-primario: #3498db;
+    --color-primario-oscuro: #2980b9;
+    --color-blanco: #ffffff;
+    --color-gris: #cccccc;
+}
+
+/* Ajusta el estilo para las cajas del header */
+header {
+    display: flex;
+    justify-content: flex-start;
+    /* Esto alineará las cajas al inicio (izquierda) */
+    align-items: center;
+    padding: 10px 20px;
+    /* Ajusta el relleno según sea necesario */
+}
+
+/* Estilo para los enlaces dentro del header */
+header a {
+    margin-right: 20px;
+    /* Ajusta el margen derecho según sea necesario */
+    text-decoration: none;
+    color: #333;
+    /* Ajusta el color del texto según sea necesario */
+    font-weight: bold;
+    /* Ajusta el grosor de la fuente según sea necesario */
+}
+
+/* Reset */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-}
-
+/* Contenedor principal */
 .container {
     display: flex;
     justify-content: space-between;
@@ -21,40 +42,54 @@ body {
     padding: 30px 20px 40px 20px;
 }
 
-.logo {
-    margin: 0;
-}
-
-.titulo-malospelos {
-    margin: 0;
-    color: var(--blanco);
-    /* Assuming --blanco is defined in your root styles */
-}
-
-header button {
-    background: var(--primario);
-    color: var(--blanco);
+/* Botones */
+header button,
+.button,
+footer button {
+    background: var(--color-primario);
+    color: var(--color-blanco);
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    text-decoration: none;
 }
 
+/* Contenedor de sección */
 .container_section {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
+.container_section2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 20px;
+    /* Ajusta el margen izquierdo según sea necesario */
+}
+
+/* Carrito de compras */
 .container_micarrito h2 {
-    color: var(--primario);
+    color: var(--color-primario);
+}
+
+.container_micarrito {
+    max-width: 60%;
+    /* Ajusta el ancho de los artículos del carrito según sea necesario */
+}
+
+.container_pago {
+    max-width: 35%;
+    /* Ajusta el ancho del resumen del pedido según sea necesario */
 }
 
 .article_carro {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--gris);
+    border: 1px solid var(--color-gris);
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 10px;
@@ -80,36 +115,25 @@ header button {
 .container_seguirc {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 20px;
 }
 
-.button {
-    background: var(--primario);
-    color: var(--blanco);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.container_pago {
-    max-width: 300px;
-}
-
+/* Tarjetas */
 .container-card {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .card {
     border: 1px solid var(--gris);
     border-radius: 8px;
     padding: 10px;
-    max-width: 250px;
+    width: 250px;
     margin-bottom: 20px;
+    
 }
 
 .card img {
@@ -136,10 +160,11 @@ header button {
 
 .rating label {
     font-size: 20px;
-    color: var(--primario);
+    color: var(--color-primario);
     cursor: pointer;
 }
 
+/* Iconos antes del footer */
 .iconos {
     display: flex;
     justify-content: space-around;
@@ -154,18 +179,24 @@ header button {
     width: 50px;
 }
 
+/* Footer */
 .container-footer {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan a una nueva línea cuando no haya suficiente espacio */
+    justify-content: space-evenly;
+    /* Distribuye los elementos de manera uniforme a lo largo del contenedor */
     align-items: center;
     padding: 40px;
-    background: var(--primario-oscuro);
-    color: var(--blanco);
+    background: var(--color-primario-oscuro);
+    color: var(--color-blanco);
 }
 
 .footer1,
 .footer2 {
     width: 45%;
+    margin-bottom: 20px;
+    /* Agregamos un margen inferior para separar las columnas */
 }
 
 .footer1condiciones div {
@@ -173,26 +204,22 @@ header button {
 }
 
 .footer-formulario {
+    width: 100%;
+    /* Hacemos que el formulario ocupe todo el ancho disponible */
     margin-top: 20px;
 }
 
 footer input {
-    width: 200px;
-    padding: 8px;
-    border: 1px solid var(--gris);
-    border-radius: 4px;
+    width: calc(100% - 20px);
+    /* Restamos 20px para dejar un pequeño espacio en ambos lados del input */
+    margin-bottom: 10px;
 }
 
-footer button {
-    background: var(--primario);
-    color: var(--blanco);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
+/* Redes sociales en el footer */
 .redes {
+    width: 100%;
+    text-align: center;
+    /* Centramos los íconos de redes sociales */
     margin-top: 20px;
 }
 

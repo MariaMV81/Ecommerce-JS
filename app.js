@@ -1,6 +1,6 @@
-const express = require("express");
+let express = require("express");
 const app = express();
-const mysql = require("mysql2");
+let mysql = require("mysql2");
 const { message } = require("prompt");
 
 app.use("/",express.static("public"));
@@ -48,20 +48,41 @@ function handleSQLError(response, error, result, callback) {
  * ENDPOINTS------------------------------------------------------------------------
  */
 
-app.get("/", function (request, response){
-  connection.query("select * fron productos", function (error, result, fields){
-    handleSQLError(response, error, result, function (result){
+// Obtener todos los productos desde la BBDD
+app.get("/productos", function (request, response) {
+  connection.query("select * from productos", function (error, result, fields) {
+    handleSQLError(response, error, result, function (result) {
       let total = request.query.total;
       let productos = [];
 
-      for (let i = 0; i < total; i++){
+      for (let i = 0; i < total; i++) {
         productos[i] = result[i];
       }
 
-      response.send(productos);
+      response.send(eventos);
     });
   });
 });
+
+app.get("/producto/:idproducto", function (request, response) {
+  const idproducto = request.params.idproducto;
+
+  connection.query(
+    `select * from productos where id = ${idproducto}`,
+    function (error, result, fields) {
+      handleSQLError(response, error, result, function (result) {
+        if (result.length == 0) {
+          response.send({});
+        } else {
+          response.send(result[0]);
+        }
+      });
+    }
+  );
+});
+
+
+
 
 
 
