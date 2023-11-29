@@ -43,20 +43,21 @@ header {
 
 /*Main*/
 .container-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /*para que se repitan tres columnas con la misma fracción */
+    display: flex;
+    flex-direction: column;
+    
     gap: 20px;
-    /*separacion entre columnas*/
+  
 }
 
 .item {
     border-radius: 10px;
+    border-color: #cacaca;
 
 }
 
 .item:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
 }
 
 .info-product {

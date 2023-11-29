@@ -1,8 +1,8 @@
 const host = "http://localhost:8000";
 
 window.addEventListener("load", function (event) {
-  fetch(`${host}/productos?total=6`)
-    .then(function (response) {
+  fetch(`${host}/productos?total=6`) //solicitud HTTP
+    .then(function (response) { //promesa
       return response.json();
     })
     .then(function (productos) {
@@ -37,53 +37,44 @@ function cargarCard(productos) {
         <p>${producto.descripcion_larga}</p>
           <button class="add-to-cart" data-product-id="${producto.id}">Comprar</button>
       </div>
+
     `;
 
     listaProductos.appendChild(li);
   });
 }
 
+let botonesComprar;
+let productos = []; // Asumiendo que tienes un array de productos
 
 document.addEventListener("DOMContentLoaded", function () {
+    botonesComprar = document.querySelectorAll(".add-to-cart");
 
-  let carrito = [];
+    botonesComprar.forEach((boton) => {
+        boton.addEventListener("click", function () {
+            const productoID = parseInt(boton.dataset.productId);
+            const producto = productos.find((p) => p.id === productoID);
 
-  function añadirAlCarrito(productoID) {
-     const producto = productos.find((p) => p.id === productoID);
-     //añadir el producto al carrito
-    carrito.push(producto);
-    actualizarVistaCarrito();
-  }
-
-  function actualizarVistaCarrito() {
-    const listaCarrito = document.getElementById("carrito-lista");
-    const totalCarrito = document.getElementById("total-carrito");
-
-    // Limpiar la vista del carrito
-    listaCarrito.innerHTML = "";
-
-    // Actualizar la vista del carrito con los productos actuales
-    carrito.forEach((producto) => {
-      const li = document.createElement("li");
-      li.textContent = `${producto.nombre} - ${producto.precio} €`;
-      listaCarrito.appendChild(li);
+            if (producto) {
+                añadirAlCarrito(producto);
+            } else {
+                console.error("Producto no encontrado");
+            }
+        });
     });
-
-    // Actualizar la cantidad total de elementos en el carrito
-    totalCarrito.textContent = calcularTotalCarrito() + " €";
-  }
-
-  function calcularTotalCarrito() {
-    return carrito.reduce((total, producto) => total + producto.precio, 0);
-  }
-
-  // Agrega el evento de clic para los botones "Comprar"
-  const botonesComprar = document.querySelectorAll(".add-to-cart");
-  botonesComprar.forEach((boton) => {
-    boton.addEventListener("click", function () {
-      // Obtén el ID del producto desde el atributo data-product-id
-      const productoID = parseInt(boton.dataset.productId);
-      añadirAlCarrito(productoID);
-    });
-  });
 });
+
+function añadirAlCarrito(producto) {
+    // Lógica para agregar productos al carrito
+    console.log("Producto añadido al carrito:", producto);
+
+    // Actualizar la vista del carrito
+    actualizarVistaCarrito();
+}
+
+function actualizarVistaCarrito() {
+    // Lógica para actualizar la vista del carrito
+    console.log("Actualizando vista del carrito");
+}
+
+
