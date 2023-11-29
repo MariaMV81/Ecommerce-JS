@@ -50,21 +50,16 @@ function handleSQLError(response, error, result, callback) {
 
 // Obtener todos los productos desde la BBDD
 app.get("/productos", function (request, response) {
-  connection.query("select * from productos", function (error, result, fields) {
+  const total = request.query.total || 6;
+  connection.query(`select * from productos LIMIT ${total}` , function (error, result, fields) {
     handleSQLError(response, error, result, function (result) {
-      let total = request.query.total;
-      let productos = [];
 
-      for (let i = 0; i < total; i++) {
-        productos[i] = result[i];
-      }
-
-      response.send(eventos);
+      response.send(result);
     });
   });
 });
 
-app.get("/producto/:idproducto", function (request, response) {
+app.get("/productos/:idproducto", function (request, response) {
   const idproducto = request.params.idproducto;
 
   connection.query(
