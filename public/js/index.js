@@ -1,80 +1,90 @@
 const host = "http://localhost:8000";
 
 window.addEventListener("load", function (event) {
-  fetch(`${host}/productos?total=6`) //solicitud HTTP
-    .then(function (response) { //promesa
+  fetch(`${host}/productos?total=6`)
+    .then(function (response) {
       return response.json();
     })
     .then(function (productos) {
-      cargarCard(productos);
+      mostrarProductos(productos);
     })
     .catch(function (error) {
       console.log(error);
     });
 });
 
-function cargarCard(productos) {
-  const listaProductos = document.getElementById("productos-lista");
+function mostrarProductos(productos) {
+  const contenedorProductos = document.getElementById("productos-lista");
 
   productos.forEach((producto) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <figure>
-        <img src="${producto.foto}" alt="${producto.nombre}" />
-      </figure>
-      <div class="info-product">
-        <h3>${producto.descripcion_corta}</h3>
-        <div class="h4">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
-        <div class="valoracion">
-          <span class="m-color">
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-            <i class="bi bi-star-fill"></i>
-          </span>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-        </div>
-        <p>${producto.descripcion_larga}</p>
-          <button class="add-to-cart" data-product-id="${producto.id}">Comprar</button>
-      </div>
-
-    `;
-
-    listaProductos.appendChild(li);
+    const tarjeta = crearTarjeta(producto);
+    contenedorProductos.appendChild(tarjeta);
   });
 }
 
-let botonesComprar;
-let productos = []; // Asumiendo que tienes un array de productos
+function crearTarjeta(producto) {
+  const tarjeta = document.createElement("div");
+  tarjeta.classList.add("item"); // Añade la clase "item" para estilos
 
-document.addEventListener("DOMContentLoaded", function () {
-    botonesComprar = document.querySelectorAll(".add-to-cart");
+  tarjeta.innerHTML = `
+    <figure>
+      <img src="${producto.foto}" alt="${producto.nombre}" />
+    </figure>
+    <div class="info-product">
+      <h2>${producto.nombre}</h2>
+      <div class="h4">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
+      <div class="valoracion">
+        <span class="m-color">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </span>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+      </div>
+      <p>${producto.descripcion_larga}</p>
+      <button class="add-to-cart" data-product-id="${producto.id}">Añadir al carrito</button>
+    </div>
+  `;
 
-    botonesComprar.forEach((boton) => {
-        boton.addEventListener("click", function () {
-            const productoID = parseInt(boton.dataset.productId);
-            const producto = productos.find((p) => p.id === productoID);
+  // Asigna un manejador de eventos al botón de "Añadir al carrito"
+  const botonCarrito = tarjeta.querySelector(".add-to-cart");
+  botonCarrito.addEventListener("click", function () {
+    añadirAlCarrito(producto);
+  });
 
-            if (producto) {
-                añadirAlCarrito(producto);
-            } else {
-                console.error("Producto no encontrado");
-            }
-        });
-    });
-});
+  return tarjeta;
+}
+
+
 
 function añadirAlCarrito(producto) {
-    // Lógica para agregar productos al carrito
-    console.log("Producto añadido al carrito:", producto);
-
-    // Actualizar la vista del carrito
-    actualizarVistaCarrito();
+  fetch(`${host}/productos/${producto.id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al agregar al carrito");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const cantidadCarritoElement =
+        document.getElementById("cantidad-carrito");
+      const cantidadEnCarrito =
+        parseInt(cantidadCarritoElement.textContent) + 1;
+      cantidadCarritoElement.textContent = cantidadEnCarrito;
+      // Actualizar la vista del carrito
+      actualizarVistaCarrito();
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
 }
 
 function actualizarVistaCarrito() {
-    // Lógica para actualizar la vista del carrito
-    console.log("Actualizando vista del carrito");
+  console.log("Actualizando vista del carrito", carrito);
 }
-
-

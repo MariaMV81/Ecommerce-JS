@@ -59,8 +59,9 @@ app.get("/productos", function (request, response) {
   });
 });
 
-app.get("/productos/:idproducto", function (request, response) {
-  const idproducto = request.params.idproducto;
+// Ruta para agregar productos al carrito
+app.post("/productos/:id_producto", function (request, response) {
+  const idproducto = request.params.id_producto;
 
   connection.query(
     `select * from productos where id = ${idproducto}`,
@@ -75,6 +76,9 @@ app.get("/productos/:idproducto", function (request, response) {
     }
   );
 });
+
+
+
 
 
 
