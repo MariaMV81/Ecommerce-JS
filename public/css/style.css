@@ -118,11 +118,11 @@ a,
 }
 
 
-.wrap {
-    max-width: 1080px;
+/* .wrap {
+    max-width: 1200px;
     padding: 0;
   
-}
+} */
 
 .caja {
     padding: 40px;
@@ -150,10 +150,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 96px;
+    gap: 28px;
 }
-
-
 
 .logo {
     margin: 0;
@@ -173,6 +171,7 @@ header #buscador {
 .navegacion .wrap {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
 }
 
 .navegacion ul {
@@ -192,28 +191,50 @@ header #buscador {
     background-image: url("../img/pintura-arcoiris.jpg");
     background-size: cover;
     background-position: center center;
-
     padding: 112px 0;
-
     color: var(--blanco);
-
     text-align: center;
 }
 
-.titulo-cat {
+.jumbotron .wrap {
     display: flex;
-    gap: 24px;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin-top: 56px;
-    margin-bottom: 32px;
-
+    justify-content: center;
+    gap: 28px;
 }
 
-.titulo-cat h4 {
+.jumbotron h1.h2 {
+    margin: 0;
+    /* Elimina el margen predeterminado del h1 */
+}
+
+.wrap.productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.titulo-card {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items:center;
+    margin-top: 32px;
+}
+
+.titulo-card h4 {
     margin: 0;
 }
 
+
+.grupo-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
 
 .valoraciones {
     background: var(--primario);

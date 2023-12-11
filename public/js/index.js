@@ -1,90 +1,150 @@
 const host = "http://localhost:8000";
 
-window.addEventListener("load", function (event) {
-  fetch(`${host}/productos?total=6`)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (productos) {
-      mostrarProductos(productos);
-    })
-    .catch(function (error) {
-      console.log(error);
+document.addEventListener("DOMContentLoaded", function () {
+  const listaCarrito = document.getElementById("productos-lista");
+  const carritoBtn = document.getElementById("carrito-btn");
+  const cantidadCarritoElement = document.getElementById("cantidad-carrito");
+
+   let carrito = obtenerCarritoDesdeLocalStorage() || [];
+
+    function obtenerCarritoDesdeLocalStorage() {
+      const carritoGuardado = localStorage.getItem("carrito");
+      return carritoGuardado ? JSON.parse(carritoGuardado) : null;
+    }
+
+    function guardarCarritoEnLocalStorage() {
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+
+   function sincronizarCarritoConServidor() {
+     // Verificar que carrito esté definido y no esté vacío
+     if (!carrito || carrito.length === 0) {
+       console.warn(
+         "El carrito está vacío. No se sincronizará con el servidor."
+       );
+       return;
+     }
+
+     // Enviar el carrito actual al servidor
+     fetch(`${host}/carrito`, {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({ carrito }),
+     })
+       .then((response) => {
+         if (!response.ok) {
+           throw new Error(`Error en la solicitud: ${response.statusText}`);
+         }
+         return response.json();
+       })
+       .then((data) => {
+         carrito = data.carrito;
+         guardarCarritoEnLocalStorage();
+       })
+       .catch((error) => {
+         console.error("Error al sincronizar con el servidor:", error);
+       });
+   }
+
+    function obtenerNuevoEstadoDelCarrito(carrito, idUsuario) {
+
+      const nuevoEstadoCarrito = actualizarCarritoEnBaseDeDatos(
+        idUsuario,
+        carrito
+      );
+
+      return nuevoEstadoCarrito;
+    }
+
+    
+
+  function actualizarCantidadCarrito() {
+    cantidadCarritoElement.textContent = carrito.length;
+  }
+
+ function agregarAlCarrito(producto) {
+   carrito.push(producto);
+   localStorage.setItem("carrito", JSON.stringify(carrito));
+   sincronizarCarritoConServidor(); 
+   actualizarCantidadCarrito();
+   renderizarProductosEnCarrito();
+ }
+
+  function renderizarProductosEnCarrito() {
+    listaCarrito.innerHTML = "";
+
+    carrito.forEach((producto) => {
+      const itemCarrito = document.createElement("li");
+      itemCarrito.textContent = producto.nombre;
+      listaCarrito.appendChild(itemCarrito);
     });
-});
+  }
 
-function mostrarProductos(productos) {
-  const contenedorProductos = document.getElementById("productos-lista");
+  function cargarProductos() {
+    fetch(`${host}/productos?total=6`)
+      .then((response) => response.json())
+      .then((productos) => {
+        console.log("Respuesta de la solicitud:", productos);
+        mostrarProductos(productos);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-  productos.forEach((producto) => {
-    const tarjeta = crearTarjeta(producto);
-    contenedorProductos.appendChild(tarjeta);
-  });
-}
+  function mostrarProductos(productos) {
+    const contenedorProductos = document.getElementById("productos-base-datos");
 
-function crearTarjeta(producto) {
-  const tarjeta = document.createElement("div");
-  tarjeta.classList.add("item"); // Añade la clase "item" para estilos
+    productos.forEach((producto) => {
+      const tarjeta = crearTarjeta(producto);
+      contenedorProductos.appendChild(tarjeta);
+    });
+  }
 
-  tarjeta.innerHTML = `
-    <figure>
-      <img src="${producto.foto}" alt="${producto.nombre}" />
-    </figure>
-    <div class="info-product">
-      <h2>${producto.nombre}</h2>
-      <div class="h4">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
-      <div class="valoracion">
-        <span class="m-color">
+  function crearTarjeta(producto) {
+    const tarjeta = document.createElement("div");
+    tarjeta.classList.add("item");
+
+    tarjeta.innerHTML = `
+      <figure>
+        <img src="${producto.foto}" alt="${producto.nombre}" />
+      </figure>
+      <div class="info-product">
+        <h2>${producto.nombre}</h2>
+        <div class="h4">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
+        <div class="valoracion">${producto.valoracion}
+          <span class="m-color">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </span>
           <i class="bi bi-star-fill"></i>
           <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-        </span>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
+        </div>
+        <p>${producto.descripcion_larga}</p>
+        <button class="btn-comprar" data-product-id="${producto.id}">Comprar</button>
+        <button >Ver</button>
       </div>
-      <p>${producto.descripcion_larga}</p>
-      <button class="add-to-cart" data-product-id="${producto.id}">Añadir al carrito</button>
-    </div>
-  `;
+    `;
 
-  // Asigna un manejador de eventos al botón de "Añadir al carrito"
-  const botonCarrito = tarjeta.querySelector(".add-to-cart");
-  botonCarrito.addEventListener("click", function () {
-    añadirAlCarrito(producto);
+    const botonComprar = tarjeta.querySelector(".btn-comprar");
+    botonComprar.addEventListener("click", function () {
+      agregarAlCarrito(producto);
+    });
+
+    return tarjeta;
+  }
+
+  console.log("Elemento carrito-btn:", carritoBtn);
+
+  carritoBtn.addEventListener("click", function () {
+   
+    window.location.href = "/html/carrito.html";
   });
 
-  return tarjeta;
-}
-
-
-
-function añadirAlCarrito(producto) {
-  fetch(`${host}/productos/${producto.id}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error al agregar al carrito");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const cantidadCarritoElement =
-        document.getElementById("cantidad-carrito");
-      const cantidadEnCarrito =
-        parseInt(cantidadCarritoElement.textContent) + 1;
-      cantidadCarritoElement.textContent = cantidadEnCarrito;
-      // Actualizar la vista del carrito
-      actualizarVistaCarrito();
-    })
-    .catch((error) => {
-      console.error(error.message);
-    });
-}
-
-function actualizarVistaCarrito() {
-  console.log("Actualizando vista del carrito", carrito);
-}
+  cargarProductos();
+  actualizarCantidadCarrito();
+  renderizarProductosEnCarrito();
+});
