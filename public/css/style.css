@@ -1,8 +1,9 @@
 :root {
     /*colores*/
-    --primario: rgb(236, 156, 36);
-    --primario-claro: #dd0638;
-    --primario-oscuro: rgb(5, 96, 161);
+    --primario: #e76bb1;
+    --primario-claro: #85cac7;
+    --primario-oscuro: #7884c1;
+    --secundario:#f9a38f;
     --negro: black;
     --blanco: white;
     --gris: #cacaca;
@@ -17,23 +18,33 @@
 }
 
 body {
+    background-image: url(../img/fondo-lienzo.jpg);
+    font-family: Arial, sans-serif;
     margin: 0;
-
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
+.wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .icon-cart {
     width: 40px;
     height: 40px;
 }
 
-img {
-    margin-right: 20px;
-
-}
 
 /*Header*/
 header {
-   
+   background-image: url() ;
+   /* background-repeat: no-repeat;  */
+   /* background-attachment: fixed;  */
+   /* background-size: cover; */
+
     align-items: center;
     /* Añadir esta línea */
     padding: 30px 20px 40px 20px;
@@ -277,69 +288,82 @@ header #buscador {
     margin: 0;
 }
 
+/* Estilos para el footer */
+footer.wrap.izq.der{
+    background-color:#af0465;
+  }
+
 footer {
-    background: var(--primario-oscuro);
-    color: var(--blanco);
-    padding: 80px 0;
+    background-image: url(../img/fondo-flores-rosas.jpg);
+    padding: 40px;
+    margin-top: 50px;
 }
 
-footer a {
-    text-decoration: none;
-}
 
-footer .wrap {
-    display: flex;
-    gap: 40px;
-}
-
-footer .izq {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-}
-
-footer .politicas {
-    display: flex;
-    gap: 24px;
-}
-
-footer .politicas nav {
-    width: 100%;
-}
-
-footer .politicas ul {
+footer ul {
     list-style: none;
+    padding: 10px;
+    margin: 20px;
+}
+
+.izq {
+    background-color: #af0465;
+    padding: 25px;
+    flex: 1;
+}
+
+.der {
+    background-color: #af0465;
+    padding: 25px;
+    flex: 1;
+}
+
+.politicas {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+}
+
+.politicas nav ul {
     padding: 0;
     margin: 0;
 }
 
-footer .politicas a {
-    color: var(--blanco);
+input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-
-
-footer .der {
-    width: 50%;
+.error {
+    display: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
-footer .der h4,
-footer .der h5 {
-    margin: 0;
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #062444;
+    color: #fff;
+    margin-top: 10px;
 }
 
-footer .der form {
-    margin-top: 24px;
+.rrss {
+
+    margin-top: 20px;
 }
 
-footer .rrss {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 24px;
-    border-top: 1px solid var(--blanco);
-    padding-top: 24px;
+.rrss a {
+    
+    margin-right: 10px;
+    color: rgb(0, 0, 0);
 }
 
 
