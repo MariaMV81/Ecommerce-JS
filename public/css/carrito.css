@@ -1,7 +1,7 @@
 /* Variables */
 :root {
-    --color-primario: #3498db;
-    --color-primario-oscuro: #2980b9;
+    --primario: #85cac7;
+    --primario-oscuro: #7884c1;
     --color-blanco: #ffffff;
     --color-gris: #cccccc;
 }
@@ -57,9 +57,7 @@ footer button {
 
 /* Contenedor de sección */
 .container_section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px;
 }
 
 .container_section2 {
@@ -70,26 +68,55 @@ footer button {
     /* Ajusta el margen izquierdo según sea necesario */
 }
 
+#productos-carrito-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.price-grp {
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
 /* Carrito de compras */
 .container_micarrito h2 {
     color: var(--color-primario);
 }
 
 .container_micarrito {
-    max-width: 60%;
-    /* Ajusta el ancho de los artículos del carrito según sea necesario */
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container_pago {
-    max-width: 35%;
-    /* Ajusta el ancho del resumen del pedido según sea necesario */
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container_pago button {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .article_carro {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--color-gris);
+    border: 1px solid #dee2e6;
     border-radius: 8px;
     margin-bottom: 20px;
     padding: 10px;
@@ -100,6 +127,39 @@ footer button {
     height: 150px;
     object-fit: cover;
     margin-right: 20px;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.price-grp {
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.product-actions {
+    display: flex;
+    align-items: center;
+}
+
+.product-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.product-actions input {
+    width: 50px;
 }
 
 .article_carro input {
@@ -113,10 +173,10 @@ footer button {
 }
 
 .container_seguirc {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px;
+    align-items: center;
 }
 
 /* Tarjetas */

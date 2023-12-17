@@ -37,25 +37,43 @@
             Carrito 
         </a>
         <i class="bi bi-arrow-right"></i> 
-        <a href="/html/formas-de-pago.html" class="btn">
+        <a href="/html/formas-de-pago.html" class="btn" style="margin-left: 20px;">
             <i class="bi bi-wallet"></i> 
             Forma de pago 
         </a>
         <i class="bi bi-arrow-right"></i> 
-        <a href="/html/finalizar-pedido.html" class="btn">
+        <a href="/html/finalizar-pedido.html" class="btn" style="margin-left: 20px;">
             <i class="bi bi-wallet"></i> 
             Finalizar compra 
         </a>
     </header>
         <section>
-            <div class="container_section">
-                <div class="container_micarrito">
-                    <h2>Su Pedido</h2>
+  <div class="container_section">
+    <div class="container_micarrito">
+      <h2>Tu Cesta
+        <span class="quantity">
+            1 Artículo(s)
+        </span>
+      </h2>
+      <ul  id="productos-carrito-lista" class="grupo-productos"></ul>
 
-                    <ul class="grupo-productos" id="productos-lista"></ul>
+      <div class="container_seguirc">
+        <button class="button">Seguir comprando</button>
+            <div class="container_button">
+                </div>
+                <div class="container_pago">
+                    <h2>Resumen del pedido</h2>
+                    <p>Continuar con el prodeso de compra para conectar tu Wallet o pagar con tarjeta</p>
+                    <div class="price-gpr"><span>100</span>
+                    <span class="currenci">€</span></div> 
+                    <button class="button" type="button"><a href="formasdepago.html">  Proceder al Pago </a></button>
+                </div>
+              </div>
+             </div>
+  </div>
+</section> 
 
-                   
-        </section>   
+ 
         
         <section>
           <div class="container_section2">
@@ -230,8 +248,11 @@
           </div>
         </footer>
 
-         <script src="/js/carrito.js"></script>
-         <script src="/js/index.js"></script>
+
+<script src="/js/carrito.js"></script>
+<script src="/js/index.js"></script>
+
+         
         
 
 </body>
