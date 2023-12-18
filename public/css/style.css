@@ -44,6 +44,8 @@ body {
 }
 
 
+
+
 /*Header*/
 header {
    background-image: url() ;
@@ -68,9 +70,10 @@ header {
 }
 
 .item {
-    border-radius: 10px;
-    border-color: #cacaca;
 
+    border-color: var(--gris);
+    border-radius: 16px;
+    background: white;
 }
 
 .item:hover {
@@ -78,14 +81,36 @@ header {
 }
 
 .info-product {
-    padding: 15px 30px;
+    padding: 16px;
 }
 
 .item img {
     width: 100%;
-    height: 300px;
+    height: auto;
     object-fit: cover;
 }
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 16px 0 16px;
+}
+
+.contenido p{
+    margin: 16px;
+    
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+    margin: 16px;
+
+}
+
+
 
 h1,
 h2,
@@ -181,7 +206,7 @@ header {
 .wrap {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 48px;
 }
 
@@ -249,15 +274,15 @@ header #buscador {
 
 
 
-.titulo-card {
+.titulo-item {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 32px;
-    align-items:center;
     margin-top: 32px;
 }
 
-.titulo-card h4 {
+.titulo-item h4 {
     margin: 0;
 }
 
@@ -286,6 +311,9 @@ header #buscador {
 
 .valoracion {
     color: var(--gris);
+    margin-left: 16px;
+    margin-bottom: 24px;
+    
 }
 
 .valoracion .bi {
@@ -327,13 +355,13 @@ footer ul {
 }
 
 .izq {
-    background-color: #af0465;
+    
     padding: 25px;
     flex: 1;
 }
 
 .der {
-    background-color: #af0465;
+    
     padding: 25px;
     flex: 1;
 }

@@ -1,52 +1,71 @@
-/* Variables */
-:root {
-    --primario: #85cac7;
-    --primario-oscuro: #7884c1;
-    --color-blanco: #ffffff;
-    --color-gris: #cccccc;
-}
-
-/* Ajusta el estilo para las cajas del header */
-header {
-    display: flex;
-    justify-content: flex-start;
-    /* Esto alineará las cajas al inicio (izquierda) */
-    align-items: center;
-    padding: 10px 20px;
-    /* Ajusta el relleno según sea necesario */
-}
-
-/* Estilo para los enlaces dentro del header */
-header a {
-    margin-right: 20px;
-    /* Ajusta el margen derecho según sea necesario */
-    text-decoration: none;
-    color: #333;
-    /* Ajusta el color del texto según sea necesario */
-    font-weight: bold;
-    /* Ajusta el grosor de la fuente según sea necesario */
-}
-
 /* Reset */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Estilo para la sección del carrito */
+section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
 }
 
 /* Contenedor principal */
+.container_section {
+    max-width: 90%;
+    /* Ajusta el ancho del contenedor al 90% de la página */
+    margin: 0 auto;
+    /* Centra el contenedor en la página */
+    background-color: #ffffff;
+    /* Color blanco grisáceo */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Estilos generales */
+.container,
+.container_section,
+.container_micarrito,
+.container_pago,
+.container_seguirc,
+.container_section2 {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 20px 40px 20px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.container_section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
 }
 
 /* Botones */
 header button,
 .button,
-footer button {
-    background: var(--color-primario);
+footer button,
+.container_seguirc .button,
+.container_pago button {
+    background: var(--primario);
     color: var(--color-blanco);
     border: none;
     padding: 10px 20px;
@@ -55,154 +74,151 @@ footer button {
     text-decoration: none;
 }
 
-/* Contenedor de sección */
-.container_section {
-    margin: 20px;
-}
-
-.container_section2 {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    margin-left: 20px;
-    /* Ajusta el margen izquierdo según sea necesario */
-}
-
-#productos-carrito-lista {
-    list-style: none;
-    padding: 0;
-}
-
-.item {
-    border: 1px solid #dee2e6;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.price-grp {
-    font-size: 18px;
-    color: #007bff;
-    font-weight: bold;
-}
-
-/* Carrito de compras */
-.container_micarrito h2 {
-    color: var(--color-primario);
-}
-
-.container_micarrito {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.container_pago {
+.container_seguirc .button {
     background-color: #007bff;
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
 }
 
 .container_pago button {
-    background-color: #28a745;
-    border: none;
+    background-color: #008cba;
+}
+
+.container_pago button a {
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Estilos para el carrito */
+.container_micarrito h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+#productos-carrito-lista {
+    /* list-style: none; */
+    padding: 0;
 }
 
 .article_carro {
     display: flex;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 10px;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .article_carro img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     margin-right: 20px;
 }
 
-.product-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-right: 20px;
+/* Estilo para la información del producto */
+.info-producto {
+    flex: 1;
 }
 
 .product-details {
     flex: 1;
 }
 
-.price-grp {
-    font-size: 18px;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.product-actions {
-    display: flex;
-    align-items: center;
+/* Estilo para la lista de productos */
+.grupo-productos-carrito {
+    list-style: none;
+    padding: 0;
 }
 
 .product-actions button {
-    background: none;
+    background: #008cba;
     border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-left: 5px;
 }
 
 .product-actions input {
-    width: 50px;
+    width: 30px;
 }
 
-.article_carro input {
-    width: 50px;
-}
-
-.article_carro button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.container_seguirc {
-    margin-top: 20px;
+/* Estilo para la cantidad de productos y botones */
+.producto-cantidad {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-/* Tarjetas */
-.container-card {
+.cantidad-input {
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+    border: 1px black solid;
+}
+
+/* Estilo para los botones de cantidad y eliminar */
+.producto-cantidad button,
+.eliminar {
+    background-color: white;
+    color: #0f0f0f;
+    border: 1px black solid;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilo específico para el botón de eliminar */
+.eliminar {
+    background: #dc3545;
+    color: white;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+/* Estilo para los íconos dentro de los botones */
+.eliminar i {
+    font-size: 20px;
+}
+
+/* Estilos para tarjetas de productos */
+.container-item {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     align-items: flex-start;
 }
 
-.card {
-    border: 1px solid var(--gris);
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px grey solid;
     border-radius: 8px;
-    padding: 10px;
-    width: 250px;
-    margin-bottom: 20px;
-    
+    margin-bottom: 15px;
+    overflow: hidden;
+    /* Añade overflow: hidden para controlar el contenido que sobresale */
 }
 
-.card img {
-    width: 100%;
-    height: 150px;
+.item img {
+    width: 150px;
+    /* Define un ancho específico para la imagen */
+    height: auto;
     object-fit: cover;
 }
 
-.card h4 {
+.info-producto {
+    flex: 1;
+}
+
+.price-grp {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* Restringe el tamaño del contenedor a su contenido */
+.container-item {
+    max-width: 100%;
+}
+
+.item h4 {
     margin: 10px 0;
 }
 
@@ -220,70 +236,6 @@ footer button {
 
 .rating label {
     font-size: 20px;
-    color: var(--color-primario);
+    color: var(--primario);
     cursor: pointer;
-}
-
-/* Iconos antes del footer */
-.iconos {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-}
-
-.iconos div {
-    text-align: center;
-}
-
-.iconos img {
-    width: 50px;
-}
-
-/* Footer */
-.container-footer {
-    display: flex;
-    flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan a una nueva línea cuando no haya suficiente espacio */
-    justify-content: space-evenly;
-    /* Distribuye los elementos de manera uniforme a lo largo del contenedor */
-    align-items: center;
-    padding: 40px;
-    background: var(--color-primario-oscuro);
-    color: var(--color-blanco);
-}
-
-.footer1,
-.footer2 {
-    width: 45%;
-    margin-bottom: 20px;
-    /* Agregamos un margen inferior para separar las columnas */
-}
-
-.footer1condiciones div {
-    margin-bottom: 20px;
-}
-
-.footer-formulario {
-    width: 100%;
-    /* Hacemos que el formulario ocupe todo el ancho disponible */
-    margin-top: 20px;
-}
-
-footer input {
-    width: calc(100% - 20px);
-    /* Restamos 20px para dejar un pequeño espacio en ambos lados del input */
-    margin-bottom: 10px;
-}
-
-/* Redes sociales en el footer */
-.redes {
-    width: 100%;
-    text-align: center;
-    /* Centramos los íconos de redes sociales */
-    margin-top: 20px;
-}
-
-.redes img {
-    width: 25px;
-    margin-right: 10px;
 }

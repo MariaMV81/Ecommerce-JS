@@ -18,6 +18,9 @@ renderizarProductosEnCarrito(carrito);
 
 localStorage.clear();
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
   
@@ -73,29 +76,56 @@ function sincronizarCarritoConServidor() {
 }
 
 function agregarAlCarrito(producto) {
-  producto.cantidad = producto.cantidad || 1;
-  carrito.push(producto);
+  // Buscar si el producto ya está en el carrito
+  const productoExistente = carrito.find((p) => p.id === producto.id);
+
+  if (productoExistente) {
+    // Si el producto ya está en el carrito, incrementar la cantidad
+    productoExistente.cantidad++;
+  } else {
+    // Si el producto no está en el carrito, agregarlo con cantidad 1
+    carrito.push({ ...producto, cantidad: 1 });
+  }
+
+  // Actualizar el carrito en el almacenamiento local
   localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  // Actualizar la visualización del carrito
   renderizarProductosEnCarrito();
+
+  // Actualizar la cantidad en el icono del carrito
   actualizarCantidadCarrito();
+
+  // Sincronizar el carrito con el servidor
   sincronizarCarritoConServidor();
 }
 
 
+
 function renderizarProductosEnCarrito() {
   const listaCarrito = document.getElementById("productos-carrito-lista");
+  const cantidadCarrito = document.querySelector(".quantity");
 
   // Verificar si el elemento existe antes de intentar modificarlo
   if (listaCarrito) {
     // Limpiar la lista antes de agregar los nuevos productos
     listaCarrito.innerHTML = "";
 
+    // Inicializar la cantidad de artículos en el carrito
+    let cantidadTotal = 0;
+
     // Iterar sobre los productos en el carrito y agregarlos a la lista
     for (let i = 0; i < carrito.length; i++) {
       const producto = carrito[i];
+      cantidadTotal += producto.cantidad;
       const itemCarrito = crearElementoCarrito(producto);
       listaCarrito.appendChild(itemCarrito);
     }
+
+
+    // Actualizar la cantidad total en el carrito
+    cantidadCarrito.textContent = `${cantidadTotal} Artículo(s)`;
+
   }
 }
 
@@ -114,7 +144,7 @@ function crearTarjeta(producto) {
   tarjeta.classList.add("item");
 
   tarjeta.innerHTML = `
-    <div class="card">
+    
       <img src="${producto.foto}" alt="${producto.nombre}" />
       <div class="contenido">
         <div class="top">
@@ -133,11 +163,11 @@ function crearTarjeta(producto) {
         <p>${producto.descripcion_larga}</p>
 
         <div class="actions">
-          <button class="carrito" data-product-id="${producto.id}"> Comprar </button>
+          <button class="carrito" data-product-id="${producto.id}"> Añadir al carrito </button>
           <button href="#" class="btn"> Ver </button>
         </div>
       </div>
-    </div>
+    
   `;
   
 
@@ -170,3 +200,4 @@ function actualizarCantidadCarrito() {
     cantidadCarritoElement.textContent = carrito.length;
   }
 }
+
