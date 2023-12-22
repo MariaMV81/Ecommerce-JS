@@ -1,4 +1,4 @@
-const host = "http://ec2-15-237-159-66.eu-west-3.compute.amazonaws.com:8000";
+const host = "http://ec2-15-237-159-66.eu-west-3.compute.amazonaws.com:8000/";
 const listaCarrito = document.getElementById("productos-lista");
 const carritoBtn = document.getElementById("carrito-btn");
 
