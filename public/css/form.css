@@ -10,7 +10,7 @@
     border-radius: 8px;
     border: 2px solid var(--gris);
     outline: var(--gris);
-    width: 100%;
+    width: 90%;
 }
 
 .input-grp input[type="checkbox"] {

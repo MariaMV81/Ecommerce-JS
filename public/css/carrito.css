@@ -17,29 +17,6 @@ section {
     margin: 20px;
 }
 
-/* Contenedor principal */
-.container_section {
-    max-width: 90%;
-    /* Ajusta el ancho del contenedor al 90% de la página */
-    margin: 0 auto;
-    /* Centra el contenedor en la página */
-    background-color: #ffffff;
-    /* Color blanco grisáceo */
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Estilos generales */
-.container,
-.container_section,
-.container_micarrito,
-.container_pago,
-.container_seguirc,
-.container_section2 {
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
 .container {
     display: flex;
     justify-content: space-between;
@@ -58,6 +35,28 @@ section {
     border-radius: 8px;
     margin: 20px;
 }
+
+.container_section2 {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 90%;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Estilos generales */
+.container,
+.container_section,
+.container_micarrito,
+.container_pago,
+.container_seguirc,
+.container_section2 {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
 
 /* Botones */
 header button,
