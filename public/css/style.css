@@ -4,6 +4,7 @@
     --primario-claro: #f9a38f;
     --primario-oscuro: #7884c1;
     --secundario:#e76bb1;
+    --secundario-oscuro:#b81270;
     --negro: black;
     --blanco: white;
     --gris: #cacaca;
@@ -70,10 +71,22 @@ header {
 }
 
 .item {
-
     border-color: var(--gris);
     border-radius: 16px;
     background: white;
+}
+
+/* Estilos del título */
+.item h4 {
+    font-size: 24px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Estilos del precio */
+.item .precio {
+    font-weight: bold;
+    color: #007bff;
 }
 
 .item:hover {
@@ -87,8 +100,11 @@ header {
 .item img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    /* object-fit: cover; */
+    border-radius: 4px;
 }
+
+
 
 .top{
     display: flex;
@@ -100,6 +116,7 @@ header {
 
 .contenido p{
     margin: 16px;
+    text-align: justify;
     
 }
 
@@ -377,13 +394,13 @@ footer ul {
     margin: 0;
 }
 
-input[type="email"] {
+/* input[type="email"] {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
+} */
 
 .error {
     display: none;
@@ -393,7 +410,7 @@ input[type="email"] {
 }
 
 .btn-block {
-    display: block;
+    display: flex;
     width: 100%;
     padding: 15px;
     border: none;
@@ -404,17 +421,21 @@ input[type="email"] {
 }
 
 .rrss {
-
+    display: flex;
+    flex-direction: row;
     margin-top: 20px;
 }
 
 .rrss a {
-    
+        
     margin-right: 10px;
-    color: rgb(0, 0, 0);
+    color: var(--secundario-oscuro);
 }
 
-
+.iconos{
+    margin: 3rem 0 1.38rem;
+    margin-left: 32px;
+}
 
 
 @media only screen and (max-width: 768px) {

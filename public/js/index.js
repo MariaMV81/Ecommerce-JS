@@ -1,4 +1,5 @@
-const host = "http://ec2-15-237-159-66.eu-west-3.compute.amazonaws.com:8000";
+// const host = "http://ec2-15-237-159-66.eu-west-3.compute.amazonaws.com:8000";
+const host = "http://localhost:8000"
 const listaCarrito = document.getElementById("productos-lista");
 const carritoBtn = document.getElementById("carrito-btn");
 
@@ -149,7 +150,7 @@ function crearTarjeta(producto) {
       <div class="contenido">
         <div class="top">
           <h4>${producto.nombre}</h4>
-          <div class="h4">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
+          <div class="precio">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
         </div>
         <div class="valoracion">${producto.valoracion}
           <span class="m-color">
