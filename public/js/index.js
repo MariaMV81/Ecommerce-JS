@@ -1,5 +1,7 @@
 // const host = "http://ec2-15-237-159-66.eu-west-3.compute.amazonaws.com:8000";
-const host = "http://localhost:8000"
+
+const host = "http://localhost:8000";
+
 const listaCarrito = document.getElementById("productos-lista");
 const carritoBtn = document.getElementById("carrito-btn");
 
@@ -37,14 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(cantidadCarritoElement.textContent);
 });
 
+
 function obtenerCarritoDesdeLocalStorage() {
   const carritoEnLocalStorage = JSON.parse(localStorage.getItem("carrito"));
   return carritoEnLocalStorage || [];
 }
 
+
 function guardarCarritoEnLocalStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
 
 function sincronizarCarritoConServidor() {
   if (!carrito || carrito.length === 0) {
@@ -76,8 +81,9 @@ function sincronizarCarritoConServidor() {
     });
 }
 
+
 function agregarAlCarrito(producto) {
-  // Buscar si el producto ya está en el carrito
+  // Busca si el producto ya está en el carrito
   const productoExistente = carrito.find((p) => p.id === producto.id);
 
   if (productoExistente) {

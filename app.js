@@ -3,7 +3,7 @@ let mysql = require("mysql2");
 const { message } = require("prompt");
 const app = express();
 
-app.use("/",express.static("public"));
+app.use("/", express.static("public"));
 app.use(express.json());
 
 // crear conexion con mysql
@@ -46,10 +46,14 @@ function handleSQLError(response, error, result, callback) {
  * ENDPOINTS------------------------------------------------------------------------
  */
 
+/**
+ * CARRITO---------------------------------------------------------------------------
+ */
+
 // Obtener todos los productos desde la BBDD
 app.get("/productos", function (request, response) {
   const total = request.query.total || 6;
-  connection.query(`select * from productos LIMIT ${total}` , function (error, result, fields) {
+  connection.query(`select * from productos LIMIT ${total}`, function (error, result, fields) {
     handleSQLError(response, error, result, function (result) {
 
       response.send(result);
@@ -100,7 +104,7 @@ app.post("/carrito", function (request, response) {
 
     //     const idCompra = result.insertId || result[0].id;
 
-        // Elimina los productos existentes de la compra en compras_productos
+    // Elimina los productos existentes de la compra en compras_productos
     //     connection.query(
     //       "DELETE FROM compras_productos WHERE id_compra = ?",
     //       [idCompra],
@@ -188,6 +192,102 @@ function obtenerNuevoEstadoDelCarrito(carrito, idUsuario) {
 module.exports = {
   obtenerNuevoEstadoDelCarrito,
 };
+
+
+
+
+
+/**
+ * REGISTRO USUARIOS---------------------------------------------------------------------------
+ */
+
+app.post("/login", function (request, response) {
+
+  console.log("Datos recibidos:", request.body);
+
+  const email = request.body.email;
+  const contraseña = request.body.contraseña;
+
+  connection.query(
+    "SELECT * FROM usuarios WHERE email = ? AND contraseña = ?",
+    [email, contraseña],
+    function (error, result, field) {
+      handleSQLError(response, error, result, function (result) {
+        console.log(result);
+
+        if (result.length == 0) {
+          response.send({ message: "Email o password no validos" });
+        } else {
+          response.send({ message: "Usuario logueado" });
+        }
+      });
+    }
+  )
+    });
+  
+
+
+
+app.post("/registro", function (request, response) {
+  let nombre = request.body.nombre;
+  let apellidos = request.body.apellidos;
+  let email = request.body.email;
+  let contraseña = request.body.contraseña;
+
+  const nombreCliente = nombre;
+  // 1. Insertar un nuevo usuario en la tabla usuarios
+  connection.query(
+    `INSERT INTO usuarios (email, contraseña) VALUES ('${email}', '${contraseña}')`,
+    function (error, result, fields) {
+      if (error) {
+        console.error(error);
+        response.status(500).send("Error al crear el usuario");
+        return;
+      }
+
+      console.log("Usuario Insertado");
+
+      // 2. Seleccionar desde usuarios el id que hemos creado
+      connection.query(
+        `SELECT id FROM usuarios WHERE email = '${email}'`,
+        function (error, result, fields) {
+          if (error) {
+            console.error(error);
+            response.status(500).send("Error al obtener el ID del usuario");
+            return;
+          }
+
+          const usuarioid = result[0].id;
+
+          // 3. Insertar en la tabla empleados_clientes el id del nuevo usuario creado
+          // connection.query(
+          //   "INSERT INTO empleados_clientes (nombre, apellidos,  dni, email, contraseña) VALUES (?, ?, ?, ?, ?)", //? marcador de posicion: especifica los valores que se van a insertar, en lugar de valores concretos
+          //   [nombre, apellidos, dni, email, contraseña], //valores reales que se insertaran en esta columna se pasan como array en el segundo argumento de la función y sonn las variables que hemos declarado al principio
+          //   function (error, result, fields) {
+          //     if (error) {
+          //       console.error(error);
+          //       response
+          //         .status(500)
+          //         .send(
+          //           "Error al insertar en la tabla empleados_clientes: " +
+          //           error.message
+          //         );
+          //       return; 
+          //     }
+
+          //     console.log("Registro completado");
+          //     response.send({ message: "registro" });
+          //   }
+          // );
+
+          response.send({ message: "Usuario registrado correctamente", nombreCliente });
+        }
+      );
+    }
+  );
+});
+
+
 
 
 app.listen(8000, () => {
