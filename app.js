@@ -61,7 +61,7 @@ app.get("/productos", function (request, response) {
   });
 });
 
-// Ruta para agregar productos al carrito
+// Ruta para agregar productos al carrito /*****Aquí lo mismo deberia ir un get****** */
 app.post("/productos/:id_producto", function (request, response) {
   const idproducto = request.params.id_producto;
 
@@ -218,7 +218,7 @@ app.post("/login", function (request, response) {
         if (result.length == 0) {
           response.send({ message: "Email o password no validos" });
         } else {
-          response.send({ message: "Usuario logueado" });
+          response.send({ message: "Usuario logueado", nombreUsuario: result[0].nombre });
         }
       });
     }
@@ -237,7 +237,8 @@ app.post("/registro", function (request, response) {
   const nombreCliente = nombre;
   // 1. Insertar un nuevo usuario en la tabla usuarios
   connection.query(
-    `INSERT INTO usuarios (email, contraseña) VALUES ('${email}', '${contraseña}')`,
+    "INSERT INTO usuarios (nombre, apellidos, email, contraseña) VALUES (?, ?, ?, ?)",
+    [nombre, apellidos, email, contraseña],
     function (error, result, fields) {
       if (error) {
         console.error(error);
