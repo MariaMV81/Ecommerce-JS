@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 console.log("Nombre de usuario no encontrado en localStorage");
                 saludoUsuarioElement.innerHTML = '<span> Espacio Cliente</span>';
-                console.log("Saludo actualizado a Espacio Cliente");
+                
             }
         } else {
             console.error("Elemento con ID 'saludoUsuario' no encontrado");
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (json.message === "Usuario logueado") {
                     // Almacena el nombre de usuario en localStorage
                     localStorage.setItem('nombreUsuario', json.nombreUsuario);
-                    
+               
                     // Redirige a la página de inicio con el nombre de usuario como parámetro
                     window.location.href = `/index.html?${json.nombreUsuario}`;
                 }
@@ -130,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Almacena el nombre de usuario en localStorage
                 localStorage.setItem('nombreUsuario', json.nombreUsuario);
                 // Actualiza el saludo en la página de inicio
-                actualizarSaludoUsuario();
+                
                 // Redirige a la página de inicio con el nombre de usuario como parámetro
-                window.location.href = `/index.html?nombre=${json.nombreUsuario}`;
+                window.location.href = `/index.html?${json.nombreUsuario}`;
             }
         }).catch(function (error) {
             console.log(error);
