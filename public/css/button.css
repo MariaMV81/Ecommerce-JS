@@ -98,7 +98,7 @@ button:hover {
     border-radius: 50%;
     color: var(--blanco);
 
-    background: var(--negro);
+    background: var(--primario);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,7 +118,7 @@ button:hover {
     font-size: 0.75rem;
     border-radius: 50%;
     color: var(--blanco);
-    background: var(--negro);
+    background: var(--primario);
     display: flex;
     justify-content: center;
     align-items: center;

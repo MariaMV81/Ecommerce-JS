@@ -1,10 +1,8 @@
 :root {
     /*colores*/
     --primario: #85cac7;
-    --primario-claro: #f9a38f;
-    --primario-oscuro: #7884c1;
     --secundario:#e76bb1;
-    --secundario-oscuro:#b81270;
+    --destacado:#f9a38f;
     --negro: black;
     --blanco: white;
     --gris: #cacaca;
@@ -87,7 +85,7 @@ header {
 /* Estilos del precio */
 .item .precio {
     font-weight: bold;
-    color: #007bff;
+    color: var(--destacado);
 }
 
 .item:hover {
@@ -296,6 +294,7 @@ header #buscador {
     display: flex;
     flex-direction: column;
     align-items: center;
+   
 }
 
 
@@ -436,14 +435,22 @@ footer ul {
 }
 
 .rrss a {
-        
     margin-right: 10px;
-    color: var(--secundario-oscuro);
+    color: var(--secundario);
 }
+
+
 
 .iconos{
     margin: 3rem 0 1.38rem;
     margin-left: 32px;
+}
+
+.iconos a i {
+    font-size: 32px;
+    
+    margin-right: 10px;
+    color: var(--secundario);
 }
 
 
