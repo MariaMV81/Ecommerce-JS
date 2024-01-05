@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const nombreUsuario = urlParams.get('nombre');
-
-    if (nombreUsuario) {
-        localStorage.setItem('nombreUsuario', nombreUsuario);
-        actualizarSaludoUsuario();
-    }
+   
+    
     console.log("Script de login-registro.js cargado correctamente.");
     
     const host = "http://localhost:8000";
+
 
     // Función para actualizar el saludo del usuario
     function actualizarSaludoUsuario() {
@@ -18,29 +14,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (saludoUsuarioElement) {
             console.log("Elemento con ID 'saludoUsuario' encontrado");
-            const nombreUsuario = localStorage.getItem('nombreUsuario'); // Asegúrate de que estás usando 'nombreUsuario' aquí
+            const nombreUsuario = localStorage.getItem('nombreUsuario');
 
-            if (nombreUsuario) {
-                console.log(`Nombre de usuario encontrado: ${nombreUsuario}`);
+            console.log("Nombre de usuario recuperado desde localStorage:", nombreUsuario);
+
+            if (nombreUsuario !== null && nombreUsuario.trim() !== '') {
+                console.log(`Nombre de usuario recuperado desde localStorage: ${nombreUsuario}`);
                 saludoUsuarioElement.innerHTML = `¡Hola, ${nombreUsuario}! `;
                 console.log(`Saludo actualizado a ¡Hola, ${nombreUsuario}!`);
             } else {
-                console.log("Nombre de usuario no encontrado en localStorage");
+                console.log("Nombre de usuario no encontrado o vacío en localStorage");
                 saludoUsuarioElement.innerHTML = '<span> Espacio Cliente</span>';
-                
             }
-        } else {
-            console.error("Elemento con ID 'saludoUsuario' no encontrado");
+
         }
     }
 
 
+ 
 
 
     console.log("Script cargado"); // Agregado para verificar si el script se carga correctamente
 
 
-    // Evento de inicio de sesión
+    /**
+     * LOGIN-----------------------------------------------------------------------------------------------------------------------------------
+     */
+
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
 
@@ -76,7 +76,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Verificamos si el usuario está logueado correctamente
                 if (json.message === "Usuario logueado") {
                     // Almacena el nombre de usuario en localStorage
-                    localStorage.setItem('nombreUsuario', json.nombreUsuario);
+                    if (json.nombreUsuario !== null) {
+                        localStorage.setItem('nombreUsuario', json.nombreUsuario);
+                        console.log("Nombre de usuario almacenado en localStorage:", json.nombreUsuario);
+                    }
+                    
+
+                    // Ahora, después de almacenar, puedes llamar a actualizarSaludoUsuario
+                    actualizarSaludoUsuario();
+
                
                     // Redirige a la página de inicio con el nombre de usuario como parámetro
                     window.location.href = `/index.html?${json.nombreUsuario}`;
@@ -93,8 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
     /**
      * REGISTRO---------------------------------------------------------------------------------------------------------------------------------
      */
+
     const registerForm = document.getElementById('register-form');
     if (registerForm) {
+
         registerForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -113,30 +123,41 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Realiza el registro del usuario
-        fetch(`${host}/registro`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ nombre, apellidos, email, contraseña })
-        }).then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            console.log(json);
+            fetch(`${host}/registro`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ nombre, apellidos, email, contraseña })
+            })
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (json) {
+                    console.log(json);
 
-            alert(json.message);
+                    alert(json.message);
 
-            if (json.message === "Usuario registrado correctamente") {
-                // Almacena el nombre de usuario en localStorage
-                localStorage.setItem('nombreUsuario', json.nombreUsuario);
-                // Actualiza el saludo en la página de inicio
-                
-                // Redirige a la página de inicio con el nombre de usuario como parámetro
-                window.location.href = `/index.html?${json.nombreUsuario}`;
-            }
-        }).catch(function (error) {
-            console.log(error);
-        });
+                    if (json.message === "Usuario registrado correctamente") {
+                        // Almacena el nombre de usuario en localStorage
+                        if (json.nombreUsuario !== null) {
+                            localStorage.setItem('nombreUsuario', json.nombreUsuario);
+                        }
+
+                        // Ahora, después de almacenar, puedes llamar a actualizarSaludoUsuario
+                        actualizarSaludoUsuario();
+                        
+                        // Redirige a la página de inicio con el nombre de usuario como parámetro
+                        window.location.href = `/index.html?${json.nombreUsuario}`;
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error en la solicitud de registro:", error);
+
+                    
+                    alert("Hubo un error durante el registro. Por favor, inténtalo de nuevo.");
+                });
+
     });
 
     } else {
@@ -154,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // Mostrar saludo al cargar la página
+    // Verificar y actualizar el saludo del usuario después de la redirección
     actualizarSaludoUsuario();
 });
 

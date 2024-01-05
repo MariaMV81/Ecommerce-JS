@@ -33,18 +33,65 @@ button:hover {
     color: var(--negro);
 }
 
+.menu-iconos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+   list-style: none;
+   padding: 0;
+    margin-bottom: 0px;
+ 
+}
+
+.menu-iconos li {
+    text-align: center;
+    /* Centra el texto debajo de los iconos */
+}
+
+.menu-iconos a {
+    text-decoration: none;
+    /* Elimina el subrayado de los enlaces */
+}
+
+.menu-iconos span {
+    display: block;
+    /* Hace que las palabras estén en una nueva línea */
+}
+
+.menu-iconos i,
+.menu-iconos span {
+    margin-top: 8px;
+    /* Espacio entre el icono y el texto */
+}
+
+.menu-iconos i {
+    font-size: 2rem;
+    /* Establece un tamaño de fuente base para los iconos */
+}
+
+.menu-iconos i:hover {
+
+    background-color: transparent;
+    color: var(--negro);
+   
+}
+
+
+
 #carrito {
     position: relative;
     white-space: nowrap;
 }
 
-#carrito span {
+#carrito a span {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: -3px;
+    right: -10px;
 
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 
     font-size: 0.75rem;
 
@@ -56,6 +103,36 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+
+#favorito a {
+    position: relative;
+    /* Cambia a posición relativa para que los elementos absolutos sean relativos a este */
+}
+
+#favorito .favorito {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    color: var(--blanco);
+    background: var(--negro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-iconos span{
+    display: block;
+    position: relative;
+    height: 100%;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
 
 .button_slide {
     color: #FFF;
@@ -82,4 +159,31 @@ button:hover {
     width: 364px;
     margin: 50px auto 0 auto;
     text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+    .menu-iconos span {
+        display: none;
+        /* Oculta los spans de los iconos cuando la pantalla es más pequeña */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-iconos i {
+        font-size: 1.5rem;
+        /* Ajusta el tamaño de fuente para dispositivos más pequeños */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    #carrito .carrito,
+    #favorito .favorito {
+        font-size: 0.75rem;
+        /* Ajusta el tamaño de fuente para dispositivos más pequeños */
+        margin-top: 2px;
+        /* Ajusta el margen superior para #carrito */
+        margin-bottom: 2px;
+        /* Ajusta el margen inferior para #favorito */
+    }
 }

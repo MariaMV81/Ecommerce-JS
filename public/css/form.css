@@ -2,16 +2,57 @@
     display: block;
 }
 
-.input-grp input {
-    font-family: 'Inter', sans-serif;
-    padding: 16px 24px;
-    font-size: 16px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 2px solid var(--gris);
-    outline: var(--gris);
-    width: 90%;
+.input-grp {
+    display: flex;
+    align-items: center;
+    position: relative;
+    
 }
+
+ .input-grp input {
+     font-family: 'Inter', sans-serif;
+     padding: 16px 40px 16px 24px;
+     /* Ajusta el padding para dar espacio al icono */
+     font-size: 16px;
+     margin: 8px 0;
+     border-radius: 8px;
+     border: 1px solid var(--gris);
+     outline: var(--gris);
+     width: 90%;
+     
+ }
+
+ .input-grp input[type="text"] {
+     font-family: 'Inter', sans-serif;
+     padding: 16px 40px 16px 24px;
+     font-size: 16px;
+     margin: 8px 0;
+     border-radius: 8px;
+     border: 1px solid var(--gris);
+     outline: var(--gris);
+     width: 90%;
+ }
+
+ .input-grp .input-icon {
+    fill: var(--gris);
+        width: 24px;
+        height: 24px;
+        margin-left: 16px;
+        cursor: pointer;
+ }
+
+.input-icon {
+    color: var(--gris);
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
 
 .input-grp input[type="checkbox"] {
     width: auto;
@@ -33,3 +74,28 @@
     display: flex;
     gap: 16px
 } */
+
+
+/* Media Query para icono en pantalla pequeña */
+@media only screen and (max-width: 768px) {
+    .input-grp input {
+        width: 0;
+        overflow: hidden;
+        transition: width 0.3s ease;
+        padding: 16px;
+        /* Ajusta el padding para el icono cuando está visible */
+    }
+
+    .input-grp input:focus {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+   
+    .input-grp .input-icon {
+        display: inline-block;
+        color: black;
+        /* Muestra el ícono cuando la pantalla sea más pequeña */
+    }
+}

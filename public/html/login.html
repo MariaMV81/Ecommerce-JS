@@ -1,102 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login</title>
-        <!-- Google fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-        <!-- Bootstrap icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-        <!-- Mi estilo -->
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/button.css">
-        <link rel="stylesheet" href="../css/form.css">
 
-        <style>
-            body{
-                box-sizing: border-box;
-            }
-            section{
-                display: flex;
-                gap: 24px;
-                margin: 40px 0;
-            }
-            section .caja{
-                width: 100%;
-            }
-        </style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Mi estilo -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/form.css">
 
-    </head>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
 
-    <body>
+        section {
+            display: flex;
+            gap: 24px;
+            margin: 40px 0;
+        }
 
-        <header>
-            <div class="wrap">
-                <a href="carrito.html" class="btn" id="carrito">
-                    <i class="bi bi-cart-fill"></i> 
-                    Carrito 
-                    <span>150</span>
-                </a>
-            </div>
-        </header>
+        section .caja {
+            width: 100%;
+        }
+    </style>
 
-        <div class="navegacion wrap">
-          <nav>
-              <ul>
-                  <li><a href="#">Inicio</a></li>
-                  <li><a href="#">Contacto</a></li>
-                  <li><a href="#">Ofertas</a></li>
-                  <li><a href="#">Condiciones</a></li>
-              </ul>
-          </nav>   
-          <nav>
-              <ul>
-                  <li><a href="#">Login</a></li>
-                  <li><a href="#">Otra cosa</a></li>
-              </ul>
-          </nav>   
+</head>
+
+<body>
+
+    <header>
+        <div class="wrap">
+            <a href="carrito.html" class="btn" id="carrito">
+                <i class="bi bi-cart-fill"></i>
+                Carrito
+                <span>150</span>
+            </a>
         </div>
+    </header>
 
-        <main >
+    <div class="navegacion wrap">
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Condiciones</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Otra cosa</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
 
         <section class="wrap">
 
-            <div class="caja">
+            <div class="caja" id="login-form">
                 <h4 class="title">Iniciar sesión</h4>
-                <form  id="login-form">
-                    
-                       
-                    <div class="input-grp">
-                        <label for="email">Email*</label>
-                        <input type="text" id="email" placeholder="email">
-                        <div class="error">Por favor, rellena tu apellido</div>
-                    </div>
-                    <div class="input-grp">
-                        <label for="">Contraseña*</label>
-                        <input type="text" id="contraseña" placeholder="contraseña">
-                        <div class="error">Por favor, rellena tu apellido</div>
-                    </div>
-                    <input type="submit" class="btn btn-block" value="Iniciar sesión">
-                </form>
+                <div>
+                    <form>
+                        <div class="input-grp">
+                            <label for="email">Email*</label>
+                            <input type="text" id="email" placeholder="email">
+                            <div class="error">Por favor, rellena tu apellido</div>
+                        </div>
+                        <div class="input-grp">
+                            <label for="">Contraseña*</label>
+                            <input type="text" id="contraseña" placeholder="contraseña">
+                            <div class="error">Por favor, rellena tu apellido</div>
+                        </div>
+                        <input type="submit" class="btn btn-block" value="Iniciar sesión">
+                    </form>
+                </div>
             </div>
-            <div class="caja destacada">
+
+            <div class="caja destacada" id="register-form">
                 <h4 class="title">Regístrate</h4>
-                <form  id="register-form">
-                    
-                        <div class="input-grp">
-                            <label for="">Nombre*</label>
-                            <input type="text" id="nombre" placeholder="Ejemplo: Manuel">
-                            <div class="error">Por favor, rellena tu nombre</div>
-                        </div>
-                        <div class="input-grp">
-                            <label for="">Apellidos*</label>
-                            <input type="text" id="apellidos" placeholder="Ejemplo: Palacios">
-                            <div class="error">Por favor, rellena tus apellidos</div>
-                        </div>
-                
+                <form>
+                    <div class="input-grp">
+                        <label for="">Nombre*</label>
+                        <input type="text" id="nombre" placeholder="Ejemplo: Manuel">
+                        <div class="error">Por favor, rellena tu nombre</div>
+                    </div>
+                    <div class="input-grp">
+                        <label for="">Apellidos*</label>
+                        <input type="text" id="apellidos" placeholder="Ejemplo: Palacios">
+                        <div class="error">Por favor, rellena tus apellidos</div>
+                    </div>
                     <div class="input-grp">
                         <label for="">Email*</label>
                         <input type="text" id="emailr" placeholder="email">
@@ -120,106 +122,106 @@
 
     </main>
 
-        <!-- Garantias -->
-        <section class="wrap garantias">
-            <div class="garantia">
-                <i class="bi bi-shield-check h2 m-color"></i>
-                <div>
-                    <h5>Pago Seguro</h5>
-                    <p>
-                        Fracciona tu pago al momento,<br />
-                        sin papeleo
-                    </p>
+    <!-- Garantias -->
+    <section class="wrap garantias">
+        <div class="garantia">
+            <i class="bi bi-shield-check h2 m-color"></i>
+            <div>
+                <h5>Pago Seguro</h5>
+                <p>
+                    Fracciona tu pago al momento,<br />
+                    sin papeleo
+                </p>
+            </div>
+        </div>
+        <div class="garantia">
+            <i class="bi bi-truck h2 m-color"></i>
+            <div>
+                <h5>Portes Gratis</h5>
+                <p>En compras superiores a 150€</p>
+            </div>
+        </div>
+        <div class="garantia">
+            <i class="bi bi-globe h2 m-color"></i>
+            <div>
+                <h5>WEB SEGURA HTTPS</h5>
+                <p>Toda la garantia del mundo</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap">
+            <div class="izq">
+                <img src="../img/logo2-r.png" alt="Logo Lienzo en Blanco" width="200" alt="Logo Lienzo en blanco" />
+                <div class="politicas">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Sobre Lienzo en Blanco</a></li>
+                            <li><a href="#">Nuestros expertos</a></li>
+                            <li><a href="#">Trabaja con nosotros</a></li>
+                            <li><a href="#">Páginas de ayuda</a></li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Politica de privacidad</a></li>
+                            <li><a href="#">Protección del comprador</a></li>
+                            <li><a href="#">Aviso legal</a></li>
+                            <li><a href="#">Condicions generales</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="garantia">
-                <i class="bi bi-truck h2 m-color"></i>
-                <div>
-                    <h5>Portes Gratis</h5>
-                    <p>En compras superiores a 150€</p>
-                </div>
-            </div>
-            <div class="garantia">
-                <i class="bi bi-globe h2 m-color"></i>
-                <div>
-                    <h5>WEB SEGURA HTTPS</h5>
-                    <p>Toda la garantia del mundo</p>
-                </div>
-            </div>
-        </section>
-        
-    
-        <!-- FOOTER -->
-        <footer>
-            <div class="wrap">
-                <div class="izq">
-                    <img src="../img/logo2-r.png" alt="Logo Lienzo en Blanco" width="200" alt="Logo Lienzo en blanco" />
-                    <div class="politicas">
-                        <nav>
-                            <ul>
-                                <li><a href="#">Sobre Lienzo en Blanco</a></li>
-                                <li><a href="#">Nuestros expertos</a></li>
-                                <li><a href="#">Trabaja con nosotros</a></li>
-                                <li><a href="#">Páginas de ayuda</a></li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul>
-                                <li><a href="#">Politica de privacidad</a></li>
-                                <li><a href="#">Protección del comprador</a></li>
-                                <li><a href="#">Aviso legal</a></li>
-                                <li><a href="#">Condicions generales</a></li>
-                            </ul>
-                        </nav>
+            <div class="der">
+                <h5>Únete a nuestra newsletter, te enviaremos email bonitos = )</h5>
+
+                <form action="">
+                    <div class="input-grp">
+                        <label for="">Email*</label>
+                        <input type="email" placeholder="email" /><input type="submit" class="btn btn-block"
+                            value="Suscribete" />
+                        <div class="error">Por favor, inserta un email válido</div>
+                    </div>
+
+                    <div class="input-grp">
+                        <label for="">
+                            <input type="checkbox" />
+                            <span>Acepto vuestra <a href="#">politica</a> de privacidad
+                            </span>
+                        </label>
+                        <div class="error">Por favor, rellena tu apellido</div>
+                    </div>
+
+
+                </form>
+
+                <div class="rrss">
+                    <h5>Síguenos en redes</h5>
+                    <div class="iconos">
+                        <a title="icon" href="#"><i class="bi bi-facebook"></i></a>
+                        <a title="icon" href="#"><i class="bi bi-twitter"></i></a>
+                        <a title="icon" href="#"><i class="bi bi-instagram"></i></a>
+                        <a title="icon" href="#"><i class="bi bi-twitch"></i></a>
                     </div>
                 </div>
-                <div class="der">
-                    <h5>Únete a nuestra newsletter, te enviaremos email bonitos = )</h5>
-        
-                    <form action="">
-                        <div class="input-grp">
-                            <label for="">Email*</label>
-                            <input type="email" placeholder="email" /><input type="submit" class="btn btn-block"
-                                value="Suscribete" />
-                            <div class="error">Por favor, inserta un email válido</div>
-                        </div>
-        
-                        <div class="input-grp">
-                            <label for="">
-                                <input type="checkbox" />
-                                <span>Acepto vuestra <a href="#">politica</a> de privacidad
-                                </span>
-                            </label>
-                            <div class="error">Por favor, rellena tu apellido</div>
-                        </div>
-        
-        
-                    </form>
-        
-                    <div class="rrss">
-                        <h5>Síguenos en redes</h5>
-                        <div class="iconos">
-                            <a title="icon" href="#"><i class="bi bi-facebook"></i></a>
-                            <a title="icon" href="#"><i class="bi bi-twitter"></i></a>
-                            <a title="icon" href="#"><i class="bi bi-instagram"></i></a>
-                            <a title="icon" href="#"><i class="bi bi-twitch"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
-        
-            <span style="font-size: 12px; color: white;">
-                © 2023 MMV. All rights reserved - PO Box 2206, Esperanto, Málaga 29006, ESP
-            </span>
-        </footer>
+        </div>
+
+        <span style="font-size: 12px; color: white;">
+            © 2023 MMV. All rights reserved - PO Box 2206, Esperanto, Málaga 29006, ESP
+        </span>
+    </footer>
 
 
-        <script src="/js/login-registro.js"></script>
+    <script src="/js/login-registro.js"></script>
 
-        
-    </body>
 
-    
+</body>
+
+
 
 
 </html>

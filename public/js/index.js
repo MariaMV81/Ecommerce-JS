@@ -19,9 +19,7 @@ console.log("Carrito recuperado:", carrito);
 renderizarProductosEnCarrito(carrito);
 
 
-localStorage.clear();
-
-
+// localStorage.clear();
 
 
 document.addEventListener("DOMContentLoaded", function () {
