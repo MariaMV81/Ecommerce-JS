@@ -1,5 +1,7 @@
 // const host = "http://ec2-15-237-159-66.eu-west-3.compute.amazonaws.com:8000";
 
+
+
 const host = "http://localhost:8000";
 
 const listaCarrito = document.getElementById("productos-lista");
@@ -24,7 +26,7 @@ renderizarProductosEnCarrito(carrito);
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  
+
   cargarProductos();
   actualizarCantidadCarrito();
   renderizarProductosEnCarrito();
@@ -35,12 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const iconoFavorito = document.getElementById("favoritos-icono");
 
-  if (iconoFavorito) {
-    iconoFavorito.addEventListener("click", function () {
-      const producto = obtenerProductoActual(); // Necesitarás implementar esto para obtener el producto actual
-      agregarAFavoritos(producto);
-    });
-  }
+  // if (iconoFavorito) {
+  //   iconoFavorito.addEventListener("click", function () {
+  //     const producto = obtenerProductoDesdeElemento();
+  //     agregarAFavoritos(producto);
+  //   });
+  // }
 
   console.log(JSON.parse(localStorage.getItem("carrito")));
   console.log(cantidadCarritoElement.textContent);
@@ -80,7 +82,7 @@ function sincronizarCarritoConServidor() {
     .then((data) => {
       carrito = data.carrito;
       guardarCarritoEnLocalStorage();
-      renderizarProductosEnCarrito(); 
+      renderizarProductosEnCarrito();
       actualizarCantidadCarrito();
     })
     .catch((error) => {
@@ -161,7 +163,7 @@ function crearTarjeta(producto) {
     
       <img src="${producto.foto}" alt="${producto.nombre}" />
       <div class="contenido">
-      <div class="favorito" data-product-id="${producto.id}"><i class="bi bi-heart"></i></div>
+      <div class="favorito" ><i class="bi bi-heart" data-product-id="${producto.id}"></i></div>
         <div class="top">
           <h4>${producto.nombre}</h4>
           <div class="precio">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
@@ -184,11 +186,17 @@ function crearTarjeta(producto) {
       </div>
     
   `;
-  
-  const iconoFavorito = tarjeta.querySelector(".favorito i");
-  iconoFavorito.addEventListener("click", function () {
-    agregarAFavoritos(producto);
-  });
+
+
+  if (typeof agregarAFavoritos === 'function') {
+    const iconoFavorito = tarjeta.querySelector(".favorito i");
+    iconoFavorito.addEventListener("click", function () {
+      agregarAFavoritos(producto);
+    });
+  } else {
+    console.error('La función agregarAFavoritos no está definida.');
+  }
+
 
   const botonComprar = tarjeta.querySelector(".carrito");
   botonComprar.addEventListener("click", function () {
@@ -210,7 +218,7 @@ function cargarProductos() {
       console.log(error);
     });
 
-  
+
 }
 
 function actualizarCantidadCarrito() {
@@ -219,4 +227,6 @@ function actualizarCantidadCarrito() {
     cantidadCarritoElement.textContent = carrito.length;
   }
 }
+
+
 
