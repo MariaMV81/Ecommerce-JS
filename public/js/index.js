@@ -33,6 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "/html/carrito.html";
   });
 
+  const iconoFavorito = document.getElementById("favoritos-icono");
+
+  if (iconoFavorito) {
+    iconoFavorito.addEventListener("click", function () {
+      const producto = obtenerProductoActual(); // Necesitarás implementar esto para obtener el producto actual
+      agregarAFavoritos(producto);
+    });
+  }
+
   console.log(JSON.parse(localStorage.getItem("carrito")));
   console.log(cantidadCarritoElement.textContent);
 });
@@ -152,6 +161,7 @@ function crearTarjeta(producto) {
     
       <img src="${producto.foto}" alt="${producto.nombre}" />
       <div class="contenido">
+      <div class="favorito" data-product-id="${producto.id}"><i class="bi bi-heart"></i></div>
         <div class="top">
           <h4>${producto.nombre}</h4>
           <div class="precio">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>
@@ -175,6 +185,10 @@ function crearTarjeta(producto) {
     
   `;
   
+  const iconoFavorito = tarjeta.querySelector(".favorito i");
+  iconoFavorito.addEventListener("click", function () {
+    agregarAFavoritos(producto);
+  });
 
   const botonComprar = tarjeta.querySelector(".carrito");
   botonComprar.addEventListener("click", function () {

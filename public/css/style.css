@@ -70,7 +70,7 @@ header {
 }
 
 .item {
-    border-color: var(--gris);
+    border-color: 1px var(--gris);
     border-radius: 16px;
     background: white;
 }
@@ -100,7 +100,8 @@ header {
     width: 100%;
     height: auto;
     /* object-fit: cover; */
-    border-radius: 4px;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
 }
 
 
@@ -343,6 +344,20 @@ header #buscador {
 
 .valoracion .bi {
     margin-right: 4px;
+}
+
+.favorito  {
+    margin-left: 16px;
+}
+
+.favorito-marcado {
+    color: var(--destacado);
+    /* Cambia el color a tu preferencia */
+}
+
+.favorito-marcado::before {
+    content: '\2665';
+    /* Código de carácter de corazón lleno */
 }
 
 .garantias {
