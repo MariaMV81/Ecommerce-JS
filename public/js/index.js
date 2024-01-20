@@ -30,12 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
   cargarProductos();
   actualizarCantidadCarrito();
   renderizarProductosEnCarrito();
+  agregarAFavoritos();
 
   carritoBtn.addEventListener("click", function () {
     window.location.href = "/html/carrito.html";
   });
 
-  const iconoFavorito = document.getElementById("favoritos-icono");
+  // const iconoFavorito = document.getElementById("favoritos-icono");
 
   // if (iconoFavorito) {
   //   iconoFavorito.addEventListener("click", function () {
@@ -163,7 +164,7 @@ function crearTarjeta(producto) {
     
       <img src="${producto.foto}" alt="${producto.nombre}" />
       <div class="contenido">
-      <div class="favorito" ><i class="bi bi-heart" data-product-id="${producto.id}"></i></div>
+      <div class="favorito" ><i class="bi bi-heart" h4 data-product-id="${producto.id}"></i></div>
         <div class="top">
           <h4>${producto.nombre}</h4>
           <div class="precio">${producto.precio}<i class="bi bi-currency-euro m-color"></i></div>

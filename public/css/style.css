@@ -350,15 +350,9 @@ header #buscador {
     margin-left: 16px;
 }
 
-.favorito-marcado {
-    color: var(--destacado);
-    /* Cambia el color a tu preferencia */
-}
 
-.favorito-marcado::before {
-    content: '\2665';
-    /* Código de carácter de corazón lleno */
-}
+
+
 
 .garantias {
     padding: 40px 16px;
