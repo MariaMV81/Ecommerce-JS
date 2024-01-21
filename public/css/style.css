@@ -6,6 +6,7 @@
     --negro: black;
     --blanco: white;
     --gris: #cacaca;
+    --gris-oscuro: #656667;
     /*tamaño de texto*/
     --texto-base: 16px;
     --h1: 3.052rem;
@@ -134,7 +135,7 @@ h2,
 h3,
 h4,
 h5 {
-    margin: 3rem 0 1.38rem;
+    /* margin: 3rem 0 1.38rem; */
     font-family: 'Lucida Sans',
         'Lucida Sans Regular',
         'Lucida Grande',
@@ -346,9 +347,7 @@ header #buscador {
     margin-right: 4px;
 }
 
-.favorito  {
-    margin-left: 16px;
-}
+
 
 
 

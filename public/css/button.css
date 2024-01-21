@@ -104,15 +104,15 @@ button:hover {
     align-items: center;
 }
 
-#favorito a {
+#favoritos {
     position: relative;
-    /* Cambia a posición relativa para que los elementos absolutos sean relativos a este */
+    white-space: nowrap;
 }
 
-#favorito .favorito {
+#favoritos a span {
     position: absolute;
-    top: -8px;
-    left: 6px;
+    top: 10px;
+    left: 35px;
     width: 22px;
     height: 22px;
     font-size: 0.75rem;
