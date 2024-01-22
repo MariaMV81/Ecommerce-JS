@@ -1,3 +1,38 @@
+/* Estilos generales del contenedor del buscador */
+#buscador {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos del input de búsqueda */
+#buscador input {
+    width: calc(100% - 40px);
+    /* Teniendo en cuenta el ancho del ícono y el padding del input */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    margin-right: -1px;
+    /* Para ajustar el espacio entre el input y el botón */
+}
+
+/* Estilos del ícono de búsqueda */
+#buscador svg {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    padding: 8px;
+    cursor: pointer;
+    fill: #495057;
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+#buscador svg:hover {
+    background-color: #e9ecef;
+}
+
+
+
+
 .input-field {
     position: relative;
 }
