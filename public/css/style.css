@@ -106,7 +106,6 @@ header {
 }
 
 
-
 .top{
     display: flex;
     flex-direction: row;
@@ -346,12 +345,6 @@ header #buscador {
 .valoracion .bi {
     margin-right: 4px;
 }
-
-
-
-
-
-
 
 .garantias {
     padding: 40px 16px;

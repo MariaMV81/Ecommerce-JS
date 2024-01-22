@@ -1,39 +1,57 @@
-.input-grp label {
-    display: block;
-}
-
-.input-grp {
-    display: flex;
-    align-items: center;
+.input-field {
     position: relative;
-    
 }
 
- .input-grp input {
-     font-family: 'Inter', sans-serif;
-     padding: 16px 40px 16px 24px;
-     /* Ajusta el padding para dar espacio al icono */
-     font-size: 16px;
-     margin: 8px 0;
-     border-radius: 8px;
-     border: 1px solid var(--gris);
-     outline: var(--gris);
-     width: 90%;
-     
- }
+.input-field input {
+    width: 93%;
+    height: 60px;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    border: 2px solid var(--gris);
+    background: transparent;
+    color: var(--gris);
+    outline: none;
+}
 
- .input-grp input[type="text"] {
-     font-family: 'Inter', sans-serif;
-     padding: 16px 40px 16px 24px;
-     font-size: 16px;
-     margin: 8px 0;
-     border-radius: 8px;
-     border: 1px solid var(--gris);
-     outline: var(--gris);
-     width: 90%;
- }
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--gris);
+    font-size: 19px;
+    pointer-events: none;
+    transition: .3s;
+}
 
- .input-grp .input-icon {
+/* Aplica estilos cuando el input está enfocado, tiene contenido o está marcado */
+.input-field input:focus+label,
+.input-field input:not(:placeholder-shown)+label,
+.input-field input:valid+label {
+    top: 0;
+    left: 15px;
+    font-size: 16px;
+    padding: 0 2px;
+    color: var(--primario);
+    background: #fdfdfd;
+}
+
+/* Aplica estilos cuando el input está vacío y no está enfocado */
+.input-field input:not(:focus):not(:placeholder-shown):not(:valid)+label {
+    top: 50%;
+    font-size: 19px;
+    color: var(--gris);
+    background: transparent;
+}
+.input-field input:focus {
+    border-color: var(--primario);
+}
+
+*/
+
+ .input-field .input-icon {
     fill: var(--gris);
         width: 24px;
         height: 24px;
@@ -54,11 +72,11 @@
 
 
 
-.input-grp input[type="checkbox"] {
+.input-field input[type="checkbox"] {
     width: auto;
 }
 
-.input-grp .error {
+.input-field .error {
     padding: 8px 16px;
     color: var(--error);
     border: 2px dashed;
@@ -66,7 +84,7 @@
     display: none;
 }
 
-.input-grp.has-error .error {
+.input-field.has-error .error {
     display: block;
 }
 
@@ -78,7 +96,7 @@
 
 /* Media Query para icono en pantalla pequeña */
 @media only screen and (max-width: 768px) {
-    .input-grp input {
+    .input-field input {
         width: 0;
         overflow: hidden;
         transition: width 0.3s ease;
@@ -86,14 +104,14 @@
         /* Ajusta el padding para el icono cuando está visible */
     }
 
-    .input-grp input:focus {
+    .input-field input:focus {
         width: 90%;
     }
 }
 
 @media only screen and (max-width: 768px) {
    
-    .input-grp .input-icon {
+    .input-field .input-icon {
         display: inline-block;
         color: black;
         /* Muestra el ícono cuando la pantalla sea más pequeña */

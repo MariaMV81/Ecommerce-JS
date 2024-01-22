@@ -71,14 +71,16 @@
                 <h4 class="title">Iniciar sesión</h4>
                 <div>
                     <form>
-                        <div class="input-grp">
-                            <label for="email">Email*</label>
-                            <input type="text" id="email" placeholder="email">
+                        <div class="input-field">
+                            <input type="text" id="email" required>
+                            <label for="email">Email</label>
+                            
                             <div class="error">Por favor, rellena tu apellido</div>
                         </div>
-                        <div class="input-grp">
-                            <label for="">Contraseña*</label>
-                            <input type="text" id="contraseña" placeholder="contraseña">
+                        <div class="input-field">
+                            <input title="contraseña" type="text" id="contraseña" required>
+                            <label for="password">Contraseña</label>
+                            
                             <div class="error">Por favor, rellena tu apellido</div>
                         </div>
                         <input type="submit" class="btn btn-block" value="Iniciar sesión">
@@ -89,29 +91,34 @@
             <div class="caja destacada" id="register-form">
                 <h4 class="title">Regístrate</h4>
                 <form>
-                    <div class="input-grp">
-                        <label for="">Nombre*</label>
-                        <input type="text" id="nombre" placeholder="Ejemplo: Manuel">
+                    <div class="input-field">
+                        <input title="nombre" type="text" id="nombre" required>
+                        <label for="">Nombre</label>
+                        
                         <div class="error">Por favor, rellena tu nombre</div>
                     </div>
-                    <div class="input-grp">
-                        <label for="">Apellidos*</label>
-                        <input type="text" id="apellidos" placeholder="Ejemplo: Palacios">
+                    <div class="input-field">
+                        <input title="apellidos" type="text" id="apellidos" required>
+                        <label for="">Apellidos</label>
+                        
                         <div class="error">Por favor, rellena tus apellidos</div>
                     </div>
-                    <div class="input-grp">
-                        <label for="">Email*</label>
-                        <input type="text" id="emailr" placeholder="email">
+                    <div class="input-field">
+                        <input title="email" type="text" id="emailr" required>
+                        <label for="">Email</label>
+                        
                         <div class="error">Por favor, rellena tu email</div>
                     </div>
-                    <div class="input-grp">
-                        <label for="">Contraseña*</label>
-                        <input type="text" id="contraseñar" placeholder="contraseña">
+                    <div class="input-field">
+                        <input title="contraseña" type="text" id="contraseñar" required>
+                        <label for="">Contraseña</label>
+                        
                         <div class="error">Por favor, rellena tu contraseña</div>
                     </div>
-                    <div class="input-grp">
-                        <label for="">Repetir contraseña*</label>
-                        <input type="text" id="contraseñarr" placeholder="contraseña">
+                    <div class="input-field">
+                        <input title="contraseña" type="text" id="contraseñarr" required>
+                        <label for="">Repetir contraseña</label>
+                        
                         <div class="error">Por favor, repita su contraseña</div>
                     </div>
                     <input type="submit" class="btn btn-block" value="Registrarse">
@@ -179,10 +186,12 @@
                 <h5>Únete a nuestra newsletter, te enviaremos email bonitos = )</h5>
 
                 <form action="">
-                    <div class="input-grp">
-                        <label for="">Email*</label>
-                        <input type="email" placeholder="email" /><input type="submit" class="btn btn-block"
-                            value="Suscribete" />
+                    <div class="input-field">
+                        <label for="">Email</label>
+                        <input type="email" placeholder="email" />
+                        <input type="submit" class="btn btn-block"
+                            value="Suscribete" 
+                            />
                         <div class="error">Por favor, inserta un email válido</div>
                     </div>
 
